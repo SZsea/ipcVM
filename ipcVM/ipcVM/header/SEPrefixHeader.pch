@@ -12,4 +12,11 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+
+#import "UIView+Extension.h"
+#import "MASingletonTemplate.h"
+#import "UIColor+MAExtension.h"
 #endif /* SEPrefixHeader_pch */

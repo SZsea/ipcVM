@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "SELoginController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,6 +16,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    SELoginController *first = [[SELoginController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] init];
+    _window.rootViewController = nav;
+    [nav pushViewController:first animated:YES];
     // Override point for customization after application launch.
     return YES;
 }
