@@ -13,5 +13,5 @@
 -(void)loadData;
 
 
--(void)getLoginCodeWithAccount:(NSString *)account password:(NSString *)password;
+-(void)getLoginCodeWithAccount:(NSString *)account password:(NSString *)password success:(void (^)())success failure:(void (^)())failure;
 @end

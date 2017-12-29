@@ -12,23 +12,15 @@
 #import "Session.h"
 // 创建 t_Session 表
 #define CREATE_SESSION_TABLE_SQL @"CREATE TABLE IF NOT EXISTS t_Session(rowId integer primary key autoincrement,\
-uid text unique,\
-sid text,\
-shareImages blob,\
-basicInfo blob,\
-schoolInfo blob,\
-friendInfo blob,\
-privacyInfo blob,\
-foot blob,\
-avatar text,\
-isNew text\
-);" // rowId 键值，uid 用户id 唯一的， sid 回话id
+account text unique,\
+password text\
+);" // rowId 键值，account， sid 回话id
 
-#define CREATE_UID_INDEX_SQL @"CREATE UNIQUE INDEX uid_index ON t_Session (uid)" // 创建一条数据，如果唯一的uid在 Session 表中不存在的时候
+#define CREATE_UID_INDEX_SQL @"CREATE UNIQUE INDEX uid_index ON t_Session (account)" // 创建一条数据，如果唯一的uid在 Session 表中不存在的时候
 
-#define REPLACE_SQL @"REPLACE INTO t_Session(uid,sid,shareImages,basicInfo,schoolInfo,friendInfo,privacyInfo,foot,avatar,isNew) values(?, ?, ?, ?,?, ?,?,?,?,?);" // 代理数据库中的唯一数据
+#define REPLACE_SQL @"REPLACE INTO t_Session(account,password) values(?, ?);" // 代理数据库中的唯一数据
 
-#define QUERY_SQL @"SELECT * FROM t_Session limit 1;"
+#define QUERY_SQL @"SELECT * FROM t_Session limit 0,1;"
 
 #define CLEAR_SQL @"DELETE FROM t_Session"
 
@@ -41,6 +33,10 @@ isNew text\
 
 - (BOOL)insertSession:(Session *)session
 {
+    if(!session.passWord.length)
+    {
+        session.passWord = @"";
+    }
     __block BOOL result = false;
     [[[DatabaseQueue sharedInstance] queue] inDatabase:^(FMDatabase *db) {
         
@@ -67,14 +63,14 @@ isNew text\
             [session setValue:[resultSet stringForColumn:@"account"] forKey:@"account"];
             [session setValue:[resultSet stringForColumn:@"passWord"] forKey:@"passWord"];
 
-            
+            MALog(@"成功查询到一条数据");
             //            [self p_setSessionValueForKey:@"psLabels" resultSet:resultSet];
             
         }
     }];
     
     
-    MALog(@"成功查询到一条数据");
+    
     return session;
 }
 

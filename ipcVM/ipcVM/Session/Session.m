@@ -12,12 +12,13 @@
 
 SINGLETON_IMPLEMENT_FOR_CLASS([self class])
 
-- (instancetype)init {
-    if (self = [super init]){
-
-    }
-    return self;
-}
+//- (instancetype)init {
+//    if (self = [super init]){
+//
+//
+//    }
+//    return self;
+//}
 
 #pragma mark public
 

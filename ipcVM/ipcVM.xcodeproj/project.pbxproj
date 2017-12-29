@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1406A1EA1FF5EE6800B632D6 /* SEMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1406A1E91FF5EE6800B632D6 /* SEMenuController.m */; };
 		1451D9C11FF337E300A6F511 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451D9C01FF337E300A6F511 /* AppDelegate.m */; };
 		1451D9C91FF337E300A6F511 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1451D9C81FF337E300A6F511 /* Assets.xcassets */; };
 		1451D9CF1FF337E300A6F511 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451D9CE1FF337E300A6F511 /* main.m */; };
@@ -67,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1406A1E81FF5EE6800B632D6 /* SEMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEMenuController.h; sourceTree = "<group>"; };
+		1406A1E91FF5EE6800B632D6 /* SEMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEMenuController.m; sourceTree = "<group>"; };
 		1451D9BC1FF337E300A6F511 /* ipcVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ipcVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1451D9BF1FF337E300A6F511 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1451D9C01FF337E300A6F511 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -178,6 +181,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1406A1E61FF5ED2200B632D6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				14D4C9961FF4D3F9001BC72C /* SEBaseViewController.h */,
+				14D4C9971FF4D3F9001BC72C /* SEBaseViewController.m */,
+				1451D9F11FF33D3600A6F511 /* SELoginController.h */,
+				1451D9F21FF33D3600A6F511 /* SELoginController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		1406A1E71FF5EDDA00B632D6 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				1406A1E81FF5EE6800B632D6 /* SEMenuController.h */,
+				1406A1E91FF5EE6800B632D6 /* SEMenuController.m */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		1451D9B31FF337E300A6F511 = {
 			isa = PBXGroup;
 			children = (
@@ -325,10 +348,8 @@
 		14D4C9991FF4D512001BC72C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				14D4C9961FF4D3F9001BC72C /* SEBaseViewController.h */,
-				14D4C9971FF4D3F9001BC72C /* SEBaseViewController.m */,
-				1451D9F11FF33D3600A6F511 /* SELoginController.h */,
-				1451D9F21FF33D3600A6F511 /* SELoginController.m */,
+				1406A1E71FF5EDDA00B632D6 /* Menu */,
+				1406A1E61FF5ED2200B632D6 /* Login */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -569,6 +590,7 @@
 				14D4C9A11FF4DBDE001BC72C /* SELoginDateProvider.m in Sources */,
 				14D4C9AC1FF4E0FF001BC72C /* DAOBase.m in Sources */,
 				14D4C98C1FF4D0F8001BC72C /* AFNetworkActivityIndicatorManager.m in Sources */,
+				1406A1EA1FF5EE6800B632D6 /* SEMenuController.m in Sources */,
 				1451D9F31FF33D3600A6F511 /* SELoginController.m in Sources */,
 				14D4C9981FF4D3F9001BC72C /* SEBaseViewController.m in Sources */,
 				14D4C9A51FF4DCF3001BC72C /* ItemBase.m in Sources */,
@@ -720,7 +742,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UR96D6UWSZ;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/abson/Desktop/ipcVM/ipcVM/ipcVM/header/SEPrefixHeader.pch;
 				INFOPLIST_FILE = ipcVM/Info.plist;
@@ -736,7 +758,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UR96D6UWSZ;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/abson/Desktop/ipcVM/ipcVM/ipcVM/header/SEPrefixHeader.pch;
 				INFOPLIST_FILE = ipcVM/Info.plist;

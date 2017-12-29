@@ -17,6 +17,6 @@
 @property (nonatomic,strong)DataProviderBase                 *dataProvider;
 
 
-
+-(void)switchController;
 
 @end

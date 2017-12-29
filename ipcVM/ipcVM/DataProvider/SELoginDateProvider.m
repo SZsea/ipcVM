@@ -15,7 +15,7 @@
     
 }
 
--(void)getLoginCodeWithAccount:(NSString *)account password:(NSString *)password
+-(void)getLoginCodeWithAccount:(NSString *)account password:(NSString *)password success:(void (^)())success failure:(void (^)())failure
 {
     //1.创建AFHTTPSessionManager管理者
     //AFHTTPSessionManager内部是基于NSURLSession实现的
@@ -31,18 +31,38 @@
     NSString *url = [NSString new];
     if(!password.length)
     {
-      url = [NSString stringWithFormat:@"http://%@/Api/Command/1",account];
+      url = [NSString stringWithFormat:@"http://%@/Api/Command/version",account];
     }else
     {
-      url = [NSString stringWithFormat:@"http://%@/Api/Command/1",account];
+      url = [NSString stringWithFormat:@"http://%@/Api/Command/version",account];
     }
    
-    
+    WEAK_SELF;
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        if(success)
+        {
+            success();
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleReceiveListData:)])
+        {
+            [weakSelf.delegate handleReceiveListData:responseObject];
+        }
         NSLog(@"请求成功---%@",[responseObject class]);
+        
+        
+        
         
     }  failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         NSLog(@"失败---%@",error);
+        if(failure)
+        {
+            failure();
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleFailureData:)])
+        {
+            [weakSelf.delegate handleFailureData:nil];
+        }
+        
     }];
     
     

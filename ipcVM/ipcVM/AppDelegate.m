@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "SELoginController.h"
+#import "SEMenuController.h"
+#import "SessionDAO.h"
+#import "Session.h"
 @interface AppDelegate ()
 
 @end
@@ -20,10 +23,23 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    SELoginController *first = [[SELoginController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] init];
+
+    
+    
+    SessionDAO *dao = [[SessionDAO alloc] init];
+    Session *session = [dao querySession];
+    UIViewController *first;
+    if(session.account.length)
+    {
+        first = [[SEMenuController  alloc] init];
+    }else
+    {
+        first = [[SELoginController alloc] init];
+    }
+    
+
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:first];
     _window.rootViewController = nav;
-    [nav pushViewController:first animated:YES];
     // Override point for customization after application launch.
     return YES;
 }
