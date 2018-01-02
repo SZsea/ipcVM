@@ -19,4 +19,5 @@
 #import "UIView+Extension.h"
 #import "MASingletonTemplate.h"
 #import "UIColor+MAExtension.h"
+
 #endif /* SEPrefixHeader_pch */

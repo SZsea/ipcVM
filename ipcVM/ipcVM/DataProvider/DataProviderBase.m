@@ -7,6 +7,7 @@
 //
 
 #import "DataProviderBase.h"
+#import "Session.h"
 
 @implementation DataProviderBase
 
@@ -25,5 +26,23 @@
 -(void)loadData
 {
 
+}
+
+-(NSString *)account
+{
+    if(!_account.length)
+    {
+        _account = [Session sharedInstance].account;
+    }
+    return _account;
+}
+
+-(NSString *)password
+{
+    if(!_password.length)
+    {
+        _password = [Session sharedInstance].passWord;
+    }
+    return _password;
 }
 @end

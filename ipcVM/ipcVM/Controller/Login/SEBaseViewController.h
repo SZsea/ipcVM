@@ -6,9 +6,9 @@
 //  Copyright © 2017年 Sean. All rights reserved.
 //
 
-#import "DataProviderBase.h"
 
 
+@class DataProviderBase;
 
 
 @interface SEBaseViewController : UIViewController

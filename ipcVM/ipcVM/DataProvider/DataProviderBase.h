@@ -37,6 +37,10 @@
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
+@property (nonatomic, strong) NSString    *account;
+
+@property (nonatomic, strong) NSString    *password;
+
 @property (nonatomic, weak)id           <DataProviderBaseDelegate>delegate;
 
 -(void)loadData;

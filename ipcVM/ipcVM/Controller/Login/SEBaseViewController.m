@@ -9,7 +9,8 @@
 #import "SEBaseViewController.h"
 #import "SELoginController.h"
 #import "SEMenuController.h"
-@interface SEBaseViewController ()
+#import "DataProviderBase.h"
+@interface SEBaseViewController ()<DataProviderBaseDelegate>
 
 
 
@@ -24,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.dataProvider.delegate = self;
     [self.dataProvider loadData];
     
 }

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1406A1EA1FF5EE6800B632D6 /* SEMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1406A1E91FF5EE6800B632D6 /* SEMenuController.m */; };
+		143669291FFB2AAC006038AE /* SEMenuDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 143669281FFB2AAC006038AE /* SEMenuDataProvider.m */; };
+		1436692C1FFB5A6D006038AE /* BotListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1436692B1FFB5A6D006038AE /* BotListItem.m */; };
+		143669301FFB8C6A006038AE /* NSDictionary+MAExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1436692F1FFB6340006038AE /* NSDictionary+MAExtension.m */; };
+		143669331FFB9026006038AE /* BotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 143669321FFB9026006038AE /* BotItem.m */; };
 		1451D9C11FF337E300A6F511 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451D9C01FF337E300A6F511 /* AppDelegate.m */; };
 		1451D9C91FF337E300A6F511 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1451D9C81FF337E300A6F511 /* Assets.xcassets */; };
 		1451D9CF1FF337E300A6F511 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451D9CE1FF337E300A6F511 /* main.m */; };
@@ -70,6 +74,14 @@
 /* Begin PBXFileReference section */
 		1406A1E81FF5EE6800B632D6 /* SEMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEMenuController.h; sourceTree = "<group>"; };
 		1406A1E91FF5EE6800B632D6 /* SEMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEMenuController.m; sourceTree = "<group>"; };
+		143669271FFB2AAC006038AE /* SEMenuDataProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEMenuDataProvider.h; sourceTree = "<group>"; };
+		143669281FFB2AAC006038AE /* SEMenuDataProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEMenuDataProvider.m; sourceTree = "<group>"; };
+		1436692A1FFB5A6D006038AE /* BotListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BotListItem.h; sourceTree = "<group>"; };
+		1436692B1FFB5A6D006038AE /* BotListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BotListItem.m; sourceTree = "<group>"; };
+		1436692E1FFB6340006038AE /* NSDictionary+MAExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MAExtension.h"; sourceTree = "<group>"; };
+		1436692F1FFB6340006038AE /* NSDictionary+MAExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MAExtension.m"; sourceTree = "<group>"; };
+		143669311FFB9026006038AE /* BotItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BotItem.h; sourceTree = "<group>"; };
+		143669321FFB9026006038AE /* BotItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BotItem.m; sourceTree = "<group>"; };
 		1451D9BC1FF337E300A6F511 /* ipcVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ipcVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1451D9BF1FF337E300A6F511 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1451D9C01FF337E300A6F511 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -201,6 +213,15 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		1436692D1FFB6340006038AE /* NSDictionary+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1436692E1FFB6340006038AE /* NSDictionary+MAExtension.h */,
+				1436692F1FFB6340006038AE /* NSDictionary+MAExtension.m */,
+			);
+			path = "NSDictionary+Extension";
+			sourceTree = "<group>";
+		};
 		1451D9B31FF337E300A6F511 = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +254,7 @@
 				1451D9C01FF337E300A6F511 /* AppDelegate.m */,
 				14D4C9AD1FF4E1CD001BC72C /* FMDB */,
 				14D4C95C1FF4D0F8001BC72C /* AFNetworking */,
+				1436692D1FFB6340006038AE /* NSDictionary+Extension */,
 				14D4C9581FF4A0F7001BC72C /* UIColor+Extensions */,
 				1451D9F41FF3497300A6F511 /* UIView+Extension */,
 				1451D9C81FF337E300A6F511 /* Assets.xcassets */,
@@ -361,6 +383,8 @@
 				14D4C99D1FF4D5E0001BC72C /* DataProviderBase.m */,
 				14D4C99F1FF4DBDE001BC72C /* SELoginDateProvider.h */,
 				14D4C9A01FF4DBDE001BC72C /* SELoginDateProvider.m */,
+				143669271FFB2AAC006038AE /* SEMenuDataProvider.h */,
+				143669281FFB2AAC006038AE /* SEMenuDataProvider.m */,
 			);
 			path = DataProvider;
 			sourceTree = "<group>";
@@ -370,6 +394,10 @@
 			children = (
 				14D4C9A31FF4DCF3001BC72C /* ItemBase.h */,
 				14D4C9A41FF4DCF3001BC72C /* ItemBase.m */,
+				1436692A1FFB5A6D006038AE /* BotListItem.h */,
+				1436692B1FFB5A6D006038AE /* BotListItem.m */,
+				143669311FFB9026006038AE /* BotItem.h */,
+				143669321FFB9026006038AE /* BotItem.m */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -560,6 +588,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				143669301FFB8C6A006038AE /* NSDictionary+MAExtension.m in Sources */,
+				1436692C1FFB5A6D006038AE /* BotListItem.m in Sources */,
+				143669331FFB9026006038AE /* BotItem.m in Sources */,
 				14D4C9851FF4D0F8001BC72C /* AFURLRequestSerialization.m in Sources */,
 				14D4C98F1FF4D0F8001BC72C /* UIImageView+AFNetworking.m in Sources */,
 				14D4C95B1FF4A0F7001BC72C /* UIColor+MAExtension.m in Sources */,
@@ -578,6 +609,7 @@
 				14D4C9911FF4D0F8001BC72C /* UIRefreshControl+AFNetworking.m in Sources */,
 				14D4C9BF1FF4E1CE001BC72C /* FMDatabase.m in Sources */,
 				14D4C9921FF4D0F8001BC72C /* UIWebView+AFNetworking.m in Sources */,
+				143669291FFB2AAC006038AE /* SEMenuDataProvider.m in Sources */,
 				14D4C9861FF4D0F8001BC72C /* AFURLResponseSerialization.m in Sources */,
 				14D4C9831FF4D0F8001BC72C /* AFNetworkReachabilityManager.m in Sources */,
 				14D4C9841FF4D0F8001BC72C /* AFSecurityPolicy.m in Sources */,

@@ -10,4 +10,14 @@
 
 @interface ItemBase : NSObject
 
+@property (nonatomic,copy) NSString  *message;
+
+@property (nonatomic,strong) id  result;
+
+@property (nonatomic,copy) NSString  *success;
+
+
+
+
+- (void)analyzeNetWorkData:(id)data;
 @end

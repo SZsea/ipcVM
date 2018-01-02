@@ -7,8 +7,8 @@
 //
 
 #import "SEMenuController.h"
-#import "SessionDAO.h"
-#import "Session.h"
+#import "SEMenuDataProvider.h"
+#import "BotListItem.h"
 @interface SEMenuController()
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -22,21 +22,22 @@
     if(self = [super init])
     {
         self.view.backgroundColor = [UIColor  blackColor];
-
-//        [self.view addSubview:self.accountLabel];
-//        [self.view addSubview:self.accountText];
-//
-//        [self.view addSubview:self.passwordLabel];
-//        [self.view addSubview:self.passwordText];
-//
-//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedAction:)];
-//        [self.view addGestureRecognizer:tap];
-//        tap.delegate = self;
-//        [self.view addSubview:self.confirmBtn];
-        
         
         
     }
     return self;
+}
+
+- (void)viewDidLoad
+{
+    self.dataProvider =  [[SEMenuDataProvider alloc] init];
+    [super viewDidLoad];
+    
+}
+
+- (void)handleReceiveListData:(id)item
+{
+    BotListItem *listItem = [[BotListItem alloc] init];
+    [listItem analyzeNetWorkData:item];
 }
 @end
