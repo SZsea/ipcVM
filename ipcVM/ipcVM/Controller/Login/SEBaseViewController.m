@@ -10,6 +10,7 @@
 #import "SELoginController.h"
 #import "SEMenuController.h"
 #import "DataProviderBase.h"
+
 @interface SEBaseViewController ()<DataProviderBaseDelegate>
 
 

@@ -12,6 +12,5 @@
 
 @property(nonatomic,strong)NSMutableArray <BotItem *>  *BotItemListArray;
 
-@property(nonatomic,copy )NSString      * AllStates;
 
 @end
