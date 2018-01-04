@@ -9,7 +9,7 @@
 
 @class BotItem;
 
-#define BOTITEMHIGHT  64.f
+#define BOTITEMHIGHT  105.f
 @interface SEMenuTableViewCell : UITableViewCell
 
 @property (nonatomic,strong)BotItem *item;

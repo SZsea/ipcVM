@@ -74,6 +74,8 @@
 		14D4C9C31FF4E1CE001BC72C /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D4C9BC1FF4E1CD001BC72C /* FMResultSet.m */; };
 		14D4C9C61FF4E241001BC72C /* DatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D4C9C51FF4E241001BC72C /* DatabaseQueue.m */; };
 		14D4C9CA1FF4E4F7001BC72C /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D4C9C91FF4E4F7001BC72C /* Session.m */; };
+		14F3ABD11FFDC5DE00E89C82 /* SEOperationMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F3ABD01FFDC5DE00E89C82 /* SEOperationMenuController.m */; };
+		14F3ABD41FFDD33800E89C82 /* SEOperationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F3ABD31FFDD33800E89C82 /* SEOperationTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,6 +236,10 @@
 		14D4C9C51FF4E241001BC72C /* DatabaseQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseQueue.m; sourceTree = "<group>"; };
 		14D4C9C81FF4E4F7001BC72C /* Session.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		14D4C9C91FF4E4F7001BC72C /* Session.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		14F3ABCF1FFDC5DE00E89C82 /* SEOperationMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEOperationMenuController.h; sourceTree = "<group>"; };
+		14F3ABD01FFDC5DE00E89C82 /* SEOperationMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEOperationMenuController.m; sourceTree = "<group>"; };
+		14F3ABD21FFDD33800E89C82 /* SEOperationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEOperationTableViewCell.h; sourceTree = "<group>"; };
+		14F3ABD31FFDD33800E89C82 /* SEOperationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEOperationTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +285,8 @@
 				1406A1E91FF5EE6800B632D6 /* SEMenuController.m */,
 				14C922D51FFCD273008D7D87 /* SEItemManagerController.h */,
 				14C922D61FFCD273008D7D87 /* SEItemManagerController.m */,
+				14F3ABCF1FFDC5DE00E89C82 /* SEOperationMenuController.h */,
+				14F3ABD01FFDC5DE00E89C82 /* SEOperationMenuController.m */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -377,6 +385,8 @@
 			children = (
 				14C922901FFC817F008D7D87 /* SEMenuTableViewCell.h */,
 				14C922911FFC817F008D7D87 /* SEMenuTableViewCell.m */,
+				14F3ABD21FFDD33800E89C82 /* SEOperationTableViewCell.h */,
+				14F3ABD31FFDD33800E89C82 /* SEOperationTableViewCell.m */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -805,6 +815,7 @@
 				14D4C98E1FF4D0F8001BC72C /* UIButton+AFNetworking.m in Sources */,
 				14D4C9C31FF4E1CE001BC72C /* FMResultSet.m in Sources */,
 				14D4C98D1FF4D0F8001BC72C /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				14F3ABD41FFDD33800E89C82 /* SEOperationTableViewCell.m in Sources */,
 				14D4C9871FF4D0F8001BC72C /* AFURLSessionManager.m in Sources */,
 				14D4C9911FF4D0F8001BC72C /* UIRefreshControl+AFNetworking.m in Sources */,
 				14D4C9BF1FF4E1CE001BC72C /* FMDatabase.m in Sources */,
@@ -824,6 +835,7 @@
 				14D4C98C1FF4D0F8001BC72C /* AFNetworkActivityIndicatorManager.m in Sources */,
 				1406A1EA1FF5EE6800B632D6 /* SEMenuController.m in Sources */,
 				1451D9F31FF33D3600A6F511 /* SELoginController.m in Sources */,
+				14F3ABD11FFDC5DE00E89C82 /* SEOperationMenuController.m in Sources */,
 				14D4C9981FF4D3F9001BC72C /* SEBaseViewController.m in Sources */,
 				14D4C9A51FF4DCF3001BC72C /* ItemBase.m in Sources */,
 			);

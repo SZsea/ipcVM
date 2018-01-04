@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SELoginController.h"
-#import "SEMenuController.h"
+#import "SEOperationMenuController.h"
 #import "SessionDAO.h"
 #import "Session.h"
 @interface AppDelegate ()
@@ -31,7 +31,7 @@
     UIViewController *first;
     if(session.account.length)
     {
-        first = [[SEMenuController  alloc] init];
+        first = [[SEOperationMenuController  alloc] init];
     }else
     {
         first = [[SELoginController alloc] init];

@@ -8,7 +8,7 @@
 
 #import "SEBaseViewController.h"
 #import "SELoginController.h"
-#import "SEMenuController.h"
+#import "SEOperationMenuController.h"
 #import "DataProviderBase.h"
 
 @interface SEBaseViewController ()<DataProviderBaseDelegate>
@@ -35,7 +35,7 @@
 {
     if([self isKindOfClass:[SELoginController class]])
     {
-        SEMenuController *login = [[SEMenuController alloc] init];
+        SEOperationMenuController *login = [[SEOperationMenuController alloc] init];
         UINavigationController *root =  [[UINavigationController alloc] initWithRootViewController:login];
         [UIApplication sharedApplication].keyWindow.rootViewController = root;
 

@@ -18,6 +18,8 @@
 
 @property (nonatomic,strong)BotListItem *listItem;
 
+@property (nonatomic,strong)UIButton  *rightBtn;
+
 @end
 
 @implementation SEMenuController
@@ -36,12 +38,28 @@
     }
     return _tableView;
 }
-
+-(UIButton *)rightBtn
+{
+    if(!_rightBtn)
+    {
+        _rightBtn = [[UIButton alloc] init];
+        [_rightBtn setTitle:@"全选" forState:UIControlStateNormal];
+        [_rightBtn setTitleColor:MAColorWithStr(@"#347df7") forState:UIControlStateNormal];
+        _rightBtn.size = CGSizeMake(64.f, 40.f);
+        [_rightBtn addTarget:self action:@selector(rightBtnAct:) forControlEvents:UIControlEventTouchDown];
+    }
+    return _rightBtn;
+    
+}
 -(instancetype)init
 {
     if(self = [super init])
     {
         self.view.backgroundColor = [UIColor  blackColor];
+//        [self.navigationController setTitle:@"Bot列表"];
+        [self.navigationItem setTitle:@"Bot列表"];
+        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:self.rightBtn];
+        self.navigationItem.rightBarButtonItem = rightItem;
         
         
     }
@@ -50,6 +68,7 @@
 
 - (void)viewDidLoad
 {
+    
     [self.view addSubview:self.tableView];
     self.dataProvider =  [[SEMenuDataProvider alloc] init];
     WS(blockSelf);
@@ -107,8 +126,16 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BotItem *item =_listItem.BotItemListArray[indexPath.row];
-    SEItemManagerController *vc = [[SEItemManagerController alloc] initWith:item.name];
-    [self.navigationController pushViewController:vc animated:YES];
+//    BotItem *item =_listItem.BotItemListArray[indexPath.row];
+//    SEItemManagerController *vc = [[SEItemManagerController alloc] initWith:item.name];
+//    [self.navigationController pushViewController:vc animated:YES];
+    MALog(@"111");
+}
+
+-(void)rightBtnAct:(UIButton *)btn
+{
+    
+    MALog(@"3432432");
+    
 }
 @end
