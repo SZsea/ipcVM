@@ -10,6 +10,11 @@
 #ifndef MASingletonTemplate_h
 #define MASingletonTemplate_h
 
+/** 消息 */
+#define KNotificationSelectedAll                         @"KNotificationSelectedAll"
+#define KNotificationEnSureAction                        @"KNotificationEnSureAction"
+#define KNotificationSelectedBot                         @"KNotificationSelectedBot"
+
 
 /** 描述 */
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height

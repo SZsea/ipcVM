@@ -19,15 +19,41 @@
 
 @property(nonatomic,strong)UILabel   *selectLab;
 
+@property(nonatomic,strong)UIButton  *enSureBtn;
+
 @end
 @implementation SEMenuTableViewCell
+-(void)dealloc{
+    
+
+
+}
+-(UIButton *)enSureBtn
+{
+    if(!_enSureBtn)
+    {
+        _enSureBtn = [[UIButton alloc] init];
+        [_enSureBtn setTitle:@"确认" forState: UIControlStateNormal];
+        [_enSureBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        _enSureBtn.titleLabel.font = MABUIFontWithSize(15.f);
+        _enSureBtn.size = CGSizeMake( SCREEN_WIDTH/2, BOTITEMHIGHT/3*2);
+        _enSureBtn.centerY = BOTITEMHIGHT/2;
+        _enSureBtn.centerX = SCREEN_WIDTH/2;
+        [_enSureBtn addTarget:self action:@selector(enSureAct) forControlEvents:UIControlEventTouchDown];
+        
+    }
+    return _enSureBtn;
+    
+    
+}
+
 -(UIButton *)selectBtn
 {
     if(!_selectBtn)
     {
         _selectBtn = [[UIButton alloc] init];
         _selectBtn.size = CGSizeMake(64.f, BOTITEMHIGHT);
-//        [_selectBtn addSubview:self.selectLab];
+        [_selectBtn addSubview:self.selectLab];
         _selectBtn.x = SCREEN_WIDTH - 64.f;
         _selectBtn.centerY = BOTITEMHIGHT/2;
         [_selectBtn addTarget:self action:@selector(selectBtnAct:) forControlEvents:UIControlEventTouchDown];
@@ -88,10 +114,11 @@
     [self.contentView addSubview:self.nameLabel];
     [self.contentView addSubview:self.discLabel];
     [self.contentView addSubview:self.selectBtn];
-    
+    [self.contentView addSubview:self.enSureBtn];
      _line= [[UIView alloc] initWithFrame:CGRectMake(0, BOTITEMHIGHT -1.f, SCREEN_WIDTH, 0.5f)];
     _line.backgroundColor = [UIColor blackColor];
     [self.contentView addSubview:_line];
+
 }
 
 - (void)setItem:(BotItem  *)item{
@@ -106,6 +133,11 @@
 {
     switch (_item.style) {
         case BotItemStyleStates:
+            if(_item.allStates.length)
+            {
+//                [_enSureBtn removeFromSuperview];
+                _enSureBtn.hidden = YES;
+            }
             _discLabel.text = _item.allStates;
 //            [_discLabel sizeToFit];
             _discLabel.numberOfLines = 0;
@@ -119,7 +151,10 @@
             _discLabel.x = 16.f;
 //
             _discLabel.textColor = [UIColor blackColor];
-            [_selectBtn removeFromSuperview];
+            
+            _selectBtn.hidden = YES;
+//            [_selectBtn removeFromSuperview];
+            
             break;
         case BotItemStyleNone:
             _nameLabel.text = _item.name;
@@ -141,6 +176,16 @@
             _discLabel.lineBreakMode = NSLineBreakByWordWrapping;
             
             _discLabel.textColor = [UIColor blackColor];
+     
+//            _enSureBtn.userInteractionEnabled = NO;
+            _enSureBtn.hidden = YES;
+            if(!_item.isSelected)
+            {
+                self.selectLab.hidden = YES;
+            }else
+            {
+               self.selectLab.hidden = NO;
+            }
             
             break;
         default:
@@ -152,13 +197,24 @@
 
 -(void)selectBtnAct:(UIButton *)button
 {
-    if(self.selectLab.superview)
+    if(!_item.isSelected)
     {
-        [self.selectLab removeFromSuperview];
+
+        self.selectLab.hidden = NO;
+        _item.isSelected = !_item.isSelected;
     }else
     {
-        [button addSubview:self.selectLab];
+
+        self.selectLab.hidden = YES;
+        _item.isSelected = !_item.isSelected;
     }
     
+}
+
+
+
+-(void)enSureAct
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:KNotificationEnSureAction object:nil];
 }
 @end

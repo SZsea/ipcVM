@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1406A1EA1FF5EE6800B632D6 /* SEMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1406A1E91FF5EE6800B632D6 /* SEMenuController.m */; };
+		140AF5BE1FFF715E00E3C3BC /* SECustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 140AF5BD1FFF715E00E3C3BC /* SECustomView.m */; };
 		143669291FFB2AAC006038AE /* SEMenuDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 143669281FFB2AAC006038AE /* SEMenuDataProvider.m */; };
 		1436692C1FFB5A6D006038AE /* BotListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1436692B1FFB5A6D006038AE /* BotListItem.m */; };
 		143669301FFB8C6A006038AE /* NSDictionary+MAExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1436692F1FFB6340006038AE /* NSDictionary+MAExtension.m */; };
@@ -98,6 +99,8 @@
 /* Begin PBXFileReference section */
 		1406A1E81FF5EE6800B632D6 /* SEMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEMenuController.h; sourceTree = "<group>"; };
 		1406A1E91FF5EE6800B632D6 /* SEMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEMenuController.m; sourceTree = "<group>"; };
+		140AF5BC1FFF715E00E3C3BC /* SECustomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SECustomView.h; sourceTree = "<group>"; };
+		140AF5BD1FFF715E00E3C3BC /* SECustomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SECustomView.m; sourceTree = "<group>"; };
 		143669271FFB2AAC006038AE /* SEMenuDataProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEMenuDataProvider.h; sourceTree = "<group>"; };
 		143669281FFB2AAC006038AE /* SEMenuDataProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEMenuDataProvider.m; sourceTree = "<group>"; };
 		1436692A1FFB5A6D006038AE /* BotListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BotListItem.h; sourceTree = "<group>"; };
@@ -291,6 +294,15 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		140AF5BB1FFF70A500E3C3BC /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				140AF5BC1FFF715E00E3C3BC /* SECustomView.h */,
+				140AF5BD1FFF715E00E3C3BC /* SECustomView.m */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		1436692D1FFB6340006038AE /* NSDictionary+Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,7 +335,8 @@
 		1451D9BE1FF337E300A6F511 /* ipcVM */ = {
 			isa = PBXGroup;
 			children = (
-				14C9228F1FFC80DA008D7D87 /* CustomView */,
+				140AF5BB1FFF70A500E3C3BC /* CustomView */,
+				14C9228F1FFC80DA008D7D87 /* CustomCell */,
 				14D4C9A61FF4DFB7001BC72C /* Session */,
 				14D4C9A21FF4DCD0001BC72C /* Item */,
 				14D4C99B1FF4D591001BC72C /* DataProvider */,
@@ -380,7 +393,7 @@
 			path = header;
 			sourceTree = "<group>";
 		};
-		14C9228F1FFC80DA008D7D87 /* CustomView */ = {
+		14C9228F1FFC80DA008D7D87 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
 				14C922901FFC817F008D7D87 /* SEMenuTableViewCell.h */,
@@ -388,7 +401,7 @@
 				14F3ABD21FFDD33800E89C82 /* SEOperationTableViewCell.h */,
 				14F3ABD31FFDD33800E89C82 /* SEOperationTableViewCell.m */,
 			);
-			path = CustomView;
+			path = CustomCell;
 			sourceTree = "<group>";
 		};
 		14C922931FFCC335008D7D87 /* MJRefresh */ = {
@@ -795,6 +808,7 @@
 				14C922D11FFCC4D0008D7D87 /* NSBundle+MJRefresh.m in Sources */,
 				14C922D21FFCC4D0008D7D87 /* UIScrollView+MJExtension.m in Sources */,
 				14C922D31FFCC4D0008D7D87 /* UIScrollView+MJRefresh.m in Sources */,
+				140AF5BE1FFF715E00E3C3BC /* SECustomView.m in Sources */,
 				14C922D41FFCC4D0008D7D87 /* UIView+MJExtension.m in Sources */,
 				143669301FFB8C6A006038AE /* NSDictionary+MAExtension.m in Sources */,
 				1436692C1FFB5A6D006038AE /* BotListItem.m in Sources */,

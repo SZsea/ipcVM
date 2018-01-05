@@ -12,6 +12,8 @@
 #import "BotItem.h"
 #import "SEMenuTableViewCell.h"
 #import "SEItemManagerController.h"
+#import "SECustomView.h"
+
 @interface SEMenuController()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -20,9 +22,23 @@
 
 @property (nonatomic,strong)UIButton  *rightBtn;
 
+@property (nonatomic,assign)BOOL     selectAll;
+
+
+
 @end
 
 @implementation SEMenuController
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:KNotificationEnSureAction object:nil];
+}
+
+- (void)setOperateKeyWord:(NSString *)operateKeyWord
+{
+    _operateKeyWord = [operateKeyWord copy];
+}
 - (UITableView *)tableView
 {
     if(!_tableView)
@@ -47,6 +63,7 @@
         [_rightBtn setTitleColor:MAColorWithStr(@"#347df7") forState:UIControlStateNormal];
         _rightBtn.size = CGSizeMake(64.f, 40.f);
         [_rightBtn addTarget:self action:@selector(rightBtnAct:) forControlEvents:UIControlEventTouchDown];
+        _selectAll = NO;
     }
     return _rightBtn;
     
@@ -60,7 +77,7 @@
         [self.navigationItem setTitle:@"Bot列表"];
         UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:self.rightBtn];
         self.navigationItem.rightBarButtonItem = rightItem;
-        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enSureAct) name:KNotificationEnSureAction object:nil];
         
     }
     return self;
@@ -73,7 +90,7 @@
     self.dataProvider =  [[SEMenuDataProvider alloc] init];
     WS(blockSelf);
     [super viewDidLoad];
-
+    
     _tableView.mj_header = [MJRefreshStateHeader headerWithRefreshingBlock:^{
         [blockSelf.dataProvider loadData];
     }];
@@ -134,8 +151,39 @@
 
 -(void)rightBtnAct:(UIButton *)btn
 {
+    if(!_selectAll)
+    {
+      [_rightBtn setTitle:@"取消" forState:UIControlStateNormal];
+        _selectAll = !_selectAll;
+
+        for(BotItem *item in _listItem.BotItemListArray)
+        {
+            item.isSelected =YES;
+        }
+    }else
+    {
+        [_rightBtn setTitle:@"全选" forState:UIControlStateNormal];
+        _selectAll = !_selectAll;
+      
+        for(BotItem *item in _listItem.BotItemListArray)
+        {
+            item.isSelected = NO;
+        }
+    }
+    [self.tableView reloadData];
+
     
-    MALog(@"3432432");
+}
+
+
+-(void)enSureAct
+{
+    if([_operateKeyWord isEqualToString:@"redeem"])
+    {
+        
+    }
+    
+    
     
 }
 @end

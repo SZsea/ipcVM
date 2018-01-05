@@ -20,6 +20,8 @@ typedef NS_ENUM(NSInteger, BotItemStyle) {
 
 @property(nonatomic, copy)NSString   *allStates;
 
+@property(nonatomic,assign)BOOL       isSelected;
+
 @property(nonatomic,assign)BotItemStyle style;
 
 -(instancetype)initWithName:(NSString *)name withStates:(NSString *)states;

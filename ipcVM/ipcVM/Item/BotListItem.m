@@ -51,7 +51,8 @@
 
         }
     }
-    
+    BotItem *item = [[BotItem alloc] initWithallStates:@""];
+    [self.BotItemListArray addObject:item];
 
     
     

@@ -10,4 +10,7 @@
 
 @interface SEMenuController : SEBaseViewController
 
+@property(nonatomic,copy)NSString    *operateKeyWord;
+
+
 @end

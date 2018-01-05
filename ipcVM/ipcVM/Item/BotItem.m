@@ -17,6 +17,7 @@
         _name = [name copy];
         _states = [states copy];
         _style = BotItemStyleNone;
+        _isSelected = NO;
     }
     return self;
 }
