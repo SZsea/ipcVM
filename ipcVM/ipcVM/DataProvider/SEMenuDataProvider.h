@@ -10,4 +10,6 @@
 
 @interface SEMenuDataProvider : DataProviderBase
 
+
+-(void)redeemCDkeywith:(NSString *)accounts WithSuccess:(void (^)())success failure:(void (^)())failure;
 @end

@@ -13,7 +13,7 @@
 #import "SEMenuTableViewCell.h"
 #import "SEItemManagerController.h"
 #import "SECustomView.h"
-
+#import "MAProgressHUD.h"
 @interface SEMenuController()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -23,6 +23,8 @@
 @property (nonatomic,strong)UIButton  *rightBtn;
 
 @property (nonatomic,assign)BOOL     selectAll;
+
+@property (nonatomic,strong)SECustomView  *customView;
 
 
 
@@ -37,7 +39,7 @@
 
 - (void)setOperateKeyWord:(NSString *)operateKeyWord
 {
-    _operateKeyWord = [operateKeyWord copy];
+    _operateKeyWord = [operateKeyWord copy]; 
 }
 - (UITableView *)tableView
 {
@@ -54,6 +56,17 @@
     }
     return _tableView;
 }
+
+- (SECustomView  *)customView
+{
+    if(!_customView)
+    {
+        _customView = [[SECustomView alloc] initWithTitle:_operateKeyWord];
+
+    }
+    return _customView;
+}
+
 -(UIButton *)rightBtn
 {
     if(!_rightBtn)
@@ -178,10 +191,40 @@
 
 -(void)enSureAct
 {
-    if([_operateKeyWord isEqualToString:@"redeem"])
+    NSString *itemString = [NSString new];
+    for(BotItem *item in _listItem.BotItemListArray)
+    {
+        if(item.isSelected)
+        {
+            itemString = [itemString stringByAppendingString:item.name];
+        }
+    }
+    if(itemString.length)
+    {
+        if([_operateKeyWord isEqualToString:@"redeem"])
+        {
+            
+            [self.navigationController.view addSubview:self.customView];
+            [self.customView showAnimation];
+//            WEAK_SELF;
+//            [self.customView setRightBtnblock:^{
+//                [(SEMenuDataProvider *)weakSelf.dataProvider redeemCDkeywith:itemString
+//                                                               WithSuccess:^{
+//
+//                }
+//                                                                   failure:^{
+//
+//                                                                   }];
+//            }];
+            
+        }
+    }else
     {
         
+        [MAProgressHUD showErrorWithTxt:@"你还没有选择任何BOT"];
+        
     }
+
     
     
     

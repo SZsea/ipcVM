@@ -36,7 +36,7 @@
     {
       url = [NSString stringWithFormat:@"http://%@/Api/Command/version",account];
     }
-   
+    MALog(@"%@",url);
     WEAK_SELF;
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         if(success)

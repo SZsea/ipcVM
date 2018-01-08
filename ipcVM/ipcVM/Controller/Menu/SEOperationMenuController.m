@@ -38,7 +38,7 @@
     if(!_menuArray)
     {
         _menuArray = [NSMutableArray new];
-        NSArray *command = [[NSArray alloc] initWithObjects:@"redeem",@"addlicense",@"start",@"stop",@"pause",@"resume",@"2fa",@"2faok", nil];
+        NSArray *command = [[NSArray alloc] initWithObjects:@"redeem",@"redeem^",@"addlicense",@"start",@"stop",@"pause",@"resume",@"2fa",@"2faok", nil];
         [_menuArray addObject:command];
 
     }
@@ -113,6 +113,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SEMenuController *vc = [[SEMenuController alloc] init];
+    vc.operateKeyWord = self.menuArray[indexPath.section][indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
+    
+
 }
 @end

@@ -20,6 +20,12 @@
 		1451D9E41FF337E300A6F511 /* ipcVMUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451D9E31FF337E300A6F511 /* ipcVMUITests.m */; };
 		1451D9F31FF33D3600A6F511 /* SELoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451D9F21FF33D3600A6F511 /* SELoginController.m */; };
 		1451DA031FF3497300A6F511 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451D9FD1FF3497300A6F511 /* UIView+Extension.m */; };
+		14B7B0242003770F00A262AE /* MAProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7B0232003770E00A262AE /* MAProgressHUD.m */; };
+		14B7B0302003773300A262AE /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7B0272003773300A262AE /* SVIndefiniteAnimatedView.m */; };
+		14B7B0312003773300A262AE /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7B0292003773300A262AE /* SVProgressAnimatedView.m */; };
+		14B7B0322003773300A262AE /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 14B7B02B2003773300A262AE /* SVProgressHUD.bundle */; };
+		14B7B0332003773300A262AE /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7B02D2003773300A262AE /* SVProgressHUD.m */; };
+		14B7B0342003773300A262AE /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7B02F2003773300A262AE /* SVRadialGradientLayer.m */; };
 		14C922921FFC817F008D7D87 /* SEMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C922911FFC817F008D7D87 /* SEMenuTableViewCell.m */; };
 		14C922C21FFCC4D0008D7D87 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C922961FFCC335008D7D87 /* MJRefreshAutoFooter.m */; };
 		14C922C31FFCC4D0008D7D87 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C922981FFCC335008D7D87 /* MJRefreshBackFooter.m */; };
@@ -126,6 +132,18 @@
 		1451D9FC1FF3497300A6F511 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		1451D9FD1FF3497300A6F511 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		1451DA081FF34E7100A6F511 /* SEPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEPrefixHeader.pch; sourceTree = "<group>"; };
+		14B7B0222003770E00A262AE /* MAProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAProgressHUD.h; sourceTree = "<group>"; };
+		14B7B0232003770E00A262AE /* MAProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAProgressHUD.m; sourceTree = "<group>"; };
+		14B7B0262003773300A262AE /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		14B7B0272003773300A262AE /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		14B7B0282003773300A262AE /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		14B7B0292003773300A262AE /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		14B7B02A2003773300A262AE /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		14B7B02B2003773300A262AE /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		14B7B02C2003773300A262AE /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		14B7B02D2003773300A262AE /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		14B7B02E2003773300A262AE /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		14B7B02F2003773300A262AE /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		14C922901FFC817F008D7D87 /* SEMenuTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEMenuTableViewCell.h; sourceTree = "<group>"; };
 		14C922911FFC817F008D7D87 /* SEMenuTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEMenuTableViewCell.m; sourceTree = "<group>"; };
 		14C922951FFCC335008D7D87 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
@@ -344,6 +362,8 @@
 				1451DA051FF34C1B00A6F511 /* header */,
 				1451D9BF1FF337E300A6F511 /* AppDelegate.h */,
 				1451D9C01FF337E300A6F511 /* AppDelegate.m */,
+				14B7B0212003770E00A262AE /* MAProgressHUD */,
+				14B7B0252003773300A262AE /* SVProgressHUD */,
 				14D4C9AD1FF4E1CD001BC72C /* FMDB */,
 				14D4C95C1FF4D0F8001BC72C /* AFNetworking */,
 				1436692D1FFB6340006038AE /* NSDictionary+Extension */,
@@ -391,6 +411,32 @@
 				1451DA081FF34E7100A6F511 /* SEPrefixHeader.pch */,
 			);
 			path = header;
+			sourceTree = "<group>";
+		};
+		14B7B0212003770E00A262AE /* MAProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				14B7B0222003770E00A262AE /* MAProgressHUD.h */,
+				14B7B0232003770E00A262AE /* MAProgressHUD.m */,
+			);
+			path = MAProgressHUD;
+			sourceTree = "<group>";
+		};
+		14B7B0252003773300A262AE /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				14B7B0262003773300A262AE /* SVIndefiniteAnimatedView.h */,
+				14B7B0272003773300A262AE /* SVIndefiniteAnimatedView.m */,
+				14B7B0282003773300A262AE /* SVProgressAnimatedView.h */,
+				14B7B0292003773300A262AE /* SVProgressAnimatedView.m */,
+				14B7B02A2003773300A262AE /* SVProgressHUD-Prefix.pch */,
+				14B7B02B2003773300A262AE /* SVProgressHUD.bundle */,
+				14B7B02C2003773300A262AE /* SVProgressHUD.h */,
+				14B7B02D2003773300A262AE /* SVProgressHUD.m */,
+				14B7B02E2003773300A262AE /* SVRadialGradientLayer.h */,
+				14B7B02F2003773300A262AE /* SVRadialGradientLayer.m */,
+			);
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		14C9228F1FFC80DA008D7D87 /* CustomCell */ = {
@@ -761,6 +807,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14D4C9BD1FF4E1CE001BC72C /* LICENSE.txt in Resources */,
+				14B7B0322003773300A262AE /* SVProgressHUD.bundle in Resources */,
 				14D4C9BE1FF4E1CE001BC72C /* README.markdown in Resources */,
 				14D4C9891FF4D0F8001BC72C /* README.md in Resources */,
 				14D4C9881FF4D0F8001BC72C /* LICENSE in Resources */,
@@ -806,6 +853,7 @@
 				14C922CF1FFCC4D0008D7D87 /* MJRefreshStateHeader.m in Sources */,
 				14C922D01FFCC4D0008D7D87 /* MJRefreshConst.m in Sources */,
 				14C922D11FFCC4D0008D7D87 /* NSBundle+MJRefresh.m in Sources */,
+				14B7B0332003773300A262AE /* SVProgressHUD.m in Sources */,
 				14C922D21FFCC4D0008D7D87 /* UIScrollView+MJExtension.m in Sources */,
 				14C922D31FFCC4D0008D7D87 /* UIScrollView+MJRefresh.m in Sources */,
 				140AF5BE1FFF715E00E3C3BC /* SECustomView.m in Sources */,
@@ -824,17 +872,20 @@
 				14D4C9901FF4D0F8001BC72C /* UIProgressView+AFNetworking.m in Sources */,
 				14C922921FFC817F008D7D87 /* SEMenuTableViewCell.m in Sources */,
 				14D4C98B1FF4D0F8001BC72C /* AFImageDownloader.m in Sources */,
+				14B7B0312003773300A262AE /* SVProgressAnimatedView.m in Sources */,
 				14D4C98A1FF4D0F8001BC72C /* AFAutoPurgingImageCache.m in Sources */,
 				1451D9C11FF337E300A6F511 /* AppDelegate.m in Sources */,
 				14D4C98E1FF4D0F8001BC72C /* UIButton+AFNetworking.m in Sources */,
 				14D4C9C31FF4E1CE001BC72C /* FMResultSet.m in Sources */,
 				14D4C98D1FF4D0F8001BC72C /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				14B7B0302003773300A262AE /* SVIndefiniteAnimatedView.m in Sources */,
 				14F3ABD41FFDD33800E89C82 /* SEOperationTableViewCell.m in Sources */,
 				14D4C9871FF4D0F8001BC72C /* AFURLSessionManager.m in Sources */,
 				14D4C9911FF4D0F8001BC72C /* UIRefreshControl+AFNetworking.m in Sources */,
 				14D4C9BF1FF4E1CE001BC72C /* FMDatabase.m in Sources */,
 				14D4C9921FF4D0F8001BC72C /* UIWebView+AFNetworking.m in Sources */,
 				143669291FFB2AAC006038AE /* SEMenuDataProvider.m in Sources */,
+				14B7B0242003770F00A262AE /* MAProgressHUD.m in Sources */,
 				14D4C9861FF4D0F8001BC72C /* AFURLResponseSerialization.m in Sources */,
 				14D4C9831FF4D0F8001BC72C /* AFNetworkReachabilityManager.m in Sources */,
 				14D4C9841FF4D0F8001BC72C /* AFSecurityPolicy.m in Sources */,
@@ -848,6 +899,7 @@
 				14D4C9AC1FF4E0FF001BC72C /* DAOBase.m in Sources */,
 				14D4C98C1FF4D0F8001BC72C /* AFNetworkActivityIndicatorManager.m in Sources */,
 				1406A1EA1FF5EE6800B632D6 /* SEMenuController.m in Sources */,
+				14B7B0342003773300A262AE /* SVRadialGradientLayer.m in Sources */,
 				1451D9F31FF33D3600A6F511 /* SELoginController.m in Sources */,
 				14F3ABD11FFDC5DE00E89C82 /* SEOperationMenuController.m in Sources */,
 				14D4C9981FF4D3F9001BC72C /* SEBaseViewController.m in Sources */,
