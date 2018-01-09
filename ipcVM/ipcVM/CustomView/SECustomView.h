@@ -13,6 +13,7 @@
 typedef NS_ENUM(NSInteger, SECustomViewStyle) {
     SECustomViewRedeem,
     SECustomViewRedeemT,
+    SECustomViewCDKey,
     SECustomViewAddlicense,
     SECustomViewStart,
     SECustomViewStop,
@@ -25,7 +26,7 @@ typedef NS_ENUM(NSInteger, SECustomViewStyle) {
 
 @property(nonatomic,assign)SECustomViewStyle  style;
 
--(instancetype)initWithTitle:(NSString *)title;
+-(instancetype)initWithstyle:(SECustomViewStyle)style;
 
 
 - (void)showAnimation;

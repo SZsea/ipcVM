@@ -22,10 +22,32 @@
 
 @property(nonatomic,strong)UILabel   *sighTitle;
 
+@property(nonatomic,strong)NSString  *finalStr;
+
+@property(nonatomic,strong)UITextView  *cdkeyText;
+
 @property (nonatomic, copy)   void(^customblock)(NSString *);
 
 @end
 @implementation SECustomView
+-(UITextView *)cdkeyText
+{
+    if(!_cdkeyText)
+    {
+        _cdkeyText = [[UITextView alloc] init];
+    }
+    return _cdkeyText;
+}
+-(NSString *)finalStr
+{
+    if(!_finalStr)
+    {
+        _finalStr = [NSString new];
+    }
+    return _finalStr;
+    
+    
+}
 -(UILabel *)sighTitle
 {
     if(!_sighTitle)
@@ -122,25 +144,28 @@
        switch (_style) {
            case SECustomViewRedeemT:
            {
-               _customView.height = SCREEN_HEIGHT/3*2 + 100.f;
+               _customView.height = SCREEN_HEIGHT - 64.f;
+               _customView.centerX = SCREEN_WIDTH/2;
+               //       _customView.centerY = SCREEN_HEIGHT/2;
+               _customView.y = SCREEN_HEIGHT;
+               _customView.backgroundColor = MAColorWithStr(@"#DEDEDE");
+               _customView.layer.cornerRadius = 10.f;
+               _customView.layer.masksToBounds = YES;
+               [_customView addSubview:self.customTitle];
+
+               [_customView addSubview:self.extralText];
+               [_customView addSubview:self.sighTitle];
                
            }
+        
                break;
                
            default:
                break;
        }
-       _customView.centerX = SCREEN_WIDTH/2;
-//       _customView.centerY = SCREEN_HEIGHT/2;
-       _customView.y = SCREEN_HEIGHT;
-       _customView.backgroundColor = MAColorWithStr(@"#DEDEDE");
-       _customView.layer.cornerRadius = 10.f;
-       _customView.layer.masksToBounds = YES;
-       [_customView addSubview:self.customTitle];
        [_customView addSubview:self.enSureBtn];
        [_customView addSubview:self.cancelBtn];
-       [_customView addSubview:self.extralText];
-       [_customView addSubview:self.sighTitle];
+
    }
     return _customView;
     
@@ -196,21 +221,33 @@
     
 }
 
--(instancetype)initWithTitle:(NSString *)title
+-(instancetype)initWithstyle:(SECustomViewStyle)style
 {
     if(self = [super initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)])
     {
-        
-        [self addSubview:self.backView];
+
+        _style = style;
         [self addSubview:self.customView];
-        ;
-        self.customTitle.text = [title stringByAppendingString:@"额外参数"];
-        [self.customTitle sizeToFit];
-        self.customTitle.centerX = _customView.width/2;
-        
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedAction:)];
-        [self addGestureRecognizer:tap];
-        tap.delegate = self;
+
+        switch (_style) {
+            case SECustomViewRedeemT:
+            {
+                [self addSubview:self.backView];
+                
+                self.customTitle.text = @"redeem^额外参数";
+                [self.customTitle sizeToFit];
+                self.customTitle.centerX = _customView.width/2;
+                
+                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedAction:)];
+                [self addGestureRecognizer:tap];
+                tap.delegate = self;
+             }
+                break;
+                
+            default:
+                break;
+        }        
+
     
 
         
@@ -265,10 +302,12 @@
 }
 -(void)enSureAct
 {
+    self.finalStr = _extralText.text;
     if(_customblock)
     {
-        _customblock(_extralText.text);
+        _customblock(self.finalStr);
     }
+    [self cancelView];
 }
 
 
@@ -278,6 +317,7 @@
     [_extralText endEditing:YES];
     [_extralText resignFirstResponder];
     [_extralText endEditing:YES];
+    
     
 }
 

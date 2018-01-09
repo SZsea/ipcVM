@@ -61,7 +61,13 @@
 {
     if(!_customView)
     {
-        _customView = [[SECustomView alloc] initWithTitle:_operateKeyWord];
+        if([_operateKeyWord isEqualToString:@"redeem^"])
+        {
+          _customView = [[SECustomView alloc] initWithstyle:SECustomViewRedeemT];
+        }
+        
+
+
 
     }
     return _customView;
@@ -199,31 +205,40 @@
             itemString = [itemString stringByAppendingString:item.name];
         }
     }
-    if(itemString.length)
-    {
-        if([_operateKeyWord isEqualToString:@"redeem"])
+    switch (self.customView.style) {
+        case SECustomViewRedeem:
         {
-            
+           if(itemString.length)
+           {
+               
+           }else
+           {
+               
+               [MAProgressHUD showErrorWithTxt:@"你还没有选择任何BOT"];
+               
+           }
+        }
+            break;
+        case SECustomViewRedeemT:
+        {
             [self.navigationController.view addSubview:self.customView];
             [self.customView showAnimation];
-//            WEAK_SELF;
-//            [self.customView setRightBtnblock:^{
-//                [(SEMenuDataProvider *)weakSelf.dataProvider redeemCDkeywith:itemString
-//                                                               WithSuccess:^{
-//
-//                }
-//                                                                   failure:^{
-//
-//                                                                   }];
-//            }];
+            WEAK_SELF;
+            
+
+
             
         }
-    }else
-    {
-        
-        [MAProgressHUD showErrorWithTxt:@"你还没有选择任何BOT"];
-        
+            break;
+        default:
+            break;
     }
+
+
+            
+            
+    
+
 
     
     
