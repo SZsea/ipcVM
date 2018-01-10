@@ -118,6 +118,7 @@
      _line= [[UIView alloc] initWithFrame:CGRectMake(0, BOTITEMHIGHT -1.f, SCREEN_WIDTH, 0.5f)];
     _line.backgroundColor = [UIColor blackColor];
     [self.contentView addSubview:_line];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 
 }
 

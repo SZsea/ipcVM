@@ -11,5 +11,5 @@
 @interface SEMenuDataProvider : DataProviderBase
 
 
--(void)redeemCDkeywith:(NSString *)accounts WithSuccess:(void (^)())success failure:(void (^)())failure;
+-(void)redeemTCDkeywithAccounts:(NSString *)accounts WithMode:(NSString *)modes withkeys:(NSString *)keys WithSuccess:(void (^)())success failure:(void (^)())failure;
 @end

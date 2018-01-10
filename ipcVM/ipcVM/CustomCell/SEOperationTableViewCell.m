@@ -53,7 +53,7 @@
     [self.contentView addSubview:_line];
     [self.contentView addSubview:self.label];
     self.backgroundColor  = MAColorWithStr(@"#FFFFE0");
-    
+
     
 }
 @end

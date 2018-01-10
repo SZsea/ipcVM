@@ -26,7 +26,9 @@
 
 @property (nonatomic,strong)SECustomView  *customView;
 
+@property (nonatomic,strong)SECustomView  *cdKeyView;
 
+@property (nonatomic,strong)NSString    *extraStr;
 
 @end
 
@@ -55,6 +57,16 @@
         
     }
     return _tableView;
+}
+
+- (SECustomView  *)cdKeyView
+{
+    if(!_cdKeyView)
+    {
+       _cdKeyView = [[SECustomView alloc] initWithstyle:SECustomViewCDKey];
+
+    }
+    return _cdKeyView;
 }
 
 - (SECustomView  *)customView
@@ -202,7 +214,7 @@
     {
         if(item.isSelected)
         {
-            itemString = [itemString stringByAppendingString:item.name];
+            itemString = [itemString stringByAppendingString:[NSString stringWithFormat:@"%@ ",item.name]];
         }
     }
     switch (self.customView.style) {
@@ -224,10 +236,35 @@
             [self.navigationController.view addSubview:self.customView];
             [self.customView showAnimation];
             WEAK_SELF;
-            
+            [self.customView setRightBtnblock:^(NSString *modes) {
+                weakSelf.extraStr = modes;
+                 [weakSelf.navigationController.view addSubview:weakSelf.cdKeyView];
 
 
+                [weakSelf.cdKeyView showAnimation];
+                [weakSelf.cdKeyView setRightBtnblock:^(NSString *modes) {
+                    [(SEMenuDataProvider *)weakSelf.dataProvider redeemTCDkeywithAccounts:itemString
+                                                                                 WithMode:weakSelf.extraStr
+                                                                                 withkeys:modes
+                                                                              WithSuccess:^{
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                              }
+                                                                                  failure:^{
+                                                                                      
+                                                                                      
+                                                                                      
+                                                                                  }];
+                }];
+            }];
+
             
+        }
+        case SECustomViewCDKey:
+        {
+            [self.navigationController.view addSubview:self.customView];
+            [self.customView showAnimation];
         }
             break;
         default:

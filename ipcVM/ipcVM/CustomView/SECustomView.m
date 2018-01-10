@@ -7,7 +7,7 @@
 //
 
 #import "SECustomView.h"
-@interface SECustomView()<UIGestureRecognizerDelegate,UITextFieldDelegate>
+@interface SECustomView()<UIGestureRecognizerDelegate,UITextFieldDelegate,UITextViewDelegate>
 @property(nonatomic,strong)UIView    *customView;
 
 @property(nonatomic,strong)UIView    *backView;
@@ -35,6 +35,13 @@
     if(!_cdkeyText)
     {
         _cdkeyText = [[UITextView alloc] init];
+        _cdkeyText.backgroundColor = MAColorWithStr(@"#EEEEE0");
+        _cdkeyText.textAlignment = NSTextAlignmentLeft;
+        _cdkeyText.keyboardType = UIKeyboardTypeDefault;
+        _cdkeyText.size = CGSizeMake(_customView.width - 16, _customView.height - 40.f - _sighTitle.height - (_customTitle.y + _customTitle.height) - 32.f);
+        _cdkeyText.delegate = self;
+        _cdkeyText.centerX = _customView.width/2;
+        _cdkeyText.y = _sighTitle.y + _sighTitle.height + 8.f;
     }
     return _cdkeyText;
 }
@@ -53,13 +60,17 @@
     if(!_sighTitle)
     {
         _sighTitle = [[UILabel alloc] init];
-        _sighTitle.width = _extralText.width;
-        _sighTitle.height = _customView.height - _cancelBtn.height - (_extralText.y + _extralText.height) - 8.f;
-        _sighTitle.font = MANUIFontWithSize(14.f);
         
+
+        
+        _sighTitle.font = MANUIFontWithSize(14.f);
+        _sighTitle.textAlignment = NSTextAlignmentLeft;
+        _sighTitle.numberOfLines = 0;
         switch (_style) {
             case SECustomViewRedeemT:
             {
+                _sighTitle.width = _extralText.width;
+                _sighTitle.height = _customView.height - 40.f - (_extralText.y + _extralText.height) - 8.f;
                  NSString *text = @"(参数可为空)也可多项 例：FF,SI\n参数列表&参数说明\nFD\nForces Distributing redeeming preference to be enabled\nFF\nForces Forwarding redeeming preference to be enabled\nFKMG\nForces KeepMissingGames redeeming preference to be enabled\nSD\nForces Distributing redeeming preference to be disabled\nSF\nForces Forwarding redeeming preference to be disabled\nSI\nSkipInitial  Skips key redemption on initial bot\nSKMG\nForces KeepMissingGames redeeming preference to be disabled\nV\nValidates keys for proper format and automatically skips invalid ones";
                 
                 NSRange rangeFD = [text rangeOfString:@"\nFD\n"];
@@ -84,19 +95,27 @@
                 [AttributedStr addAttribute:NSForegroundColorAttributeName value:MAColorWithStr(@"#EE0000") range:rangeV];
                 [AttributedStr addAttribute:NSForegroundColorAttributeName value:MAColorWithStr(@"#EE0000") range:rangelizi];
                 _sighTitle.attributedText = AttributedStr;
+                _sighTitle.y = _extralText.y + _extralText.height + 8.f;
             }
                 break;
+            case SECustomViewCDKey:
+            {
+                _sighTitle.width = _customView.width - 16;
+                _sighTitle.height = 64.f;
                 
+                NSString *text = @"可输入多组Cdkey,并且以"",""的方式隔开例如:key1,key2,key3\n请不要输入不必要的字符";
+                NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:text];
+                _sighTitle.attributedText = AttributedStr;
+                _sighTitle.y = _customTitle.y + _customTitle.height + 8.f;
+            }
+                break;
             default:
                 break;
         }
         
-
-        _sighTitle.textAlignment = NSTextAlignmentLeft;
-        _sighTitle.numberOfLines = 0;
-        _sighTitle.y = _extralText.y + _extralText.height + 8.f;
         _sighTitle.centerX = _customView.width/2;
         _sighTitle.backgroundColor = MAColorWithStr(@"#DEDEDE");
+//        _sighTitle.backgroundColor = [UIColor redColor];
     }
     return _sighTitle;
  
@@ -110,7 +129,21 @@
     {
         _customTitle = [[UILabel alloc] init];
         _customTitle.y = 16.f;
-        
+        switch (_style) {
+            case SECustomViewRedeemT:
+                self.customTitle.text = @"redeem^额外参数";
+                [self.customTitle sizeToFit];
+                self.customTitle.centerX = _customView.width/2;
+                break;
+            case SECustomViewCDKey:
+                self.customTitle.text = @"CDKey";
+                [self.customTitle sizeToFit];
+                self.customTitle.centerX = _customView.width/2;
+                break;
+                
+            default:
+                break;
+        }
         
     }
     return _customTitle;
@@ -140,7 +173,7 @@
    {
        _customView = [[UIView alloc] init];
        _customView.width = SCREEN_WIDTH - 64;
-       
+
        switch (_style) {
            case SECustomViewRedeemT:
            {
@@ -157,6 +190,23 @@
                [_customView addSubview:self.sighTitle];
                
            }
+               break;
+           case SECustomViewCDKey:
+           {
+               _customView.height = SCREEN_HEIGHT /2;
+               _customView.centerX = SCREEN_WIDTH/2;
+               //       _customView.centerY = SCREEN_HEIGHT/2;
+               _customView.y = SCREEN_HEIGHT;
+               _customView.backgroundColor = MAColorWithStr(@"#DEDEDE");
+               _customView.layer.cornerRadius = 10.f;
+               _customView.layer.masksToBounds = YES;
+               [_customView addSubview:self.customTitle];
+               
+               
+               [_customView addSubview:self.sighTitle];
+               [_customView addSubview:self.cdkeyText];
+               
+           }
         
                break;
                
@@ -165,6 +215,7 @@
        }
        [_customView addSubview:self.enSureBtn];
        [_customView addSubview:self.cancelBtn];
+
 
    }
     return _customView;
@@ -227,23 +278,32 @@
     {
 
         _style = style;
+        [self addSubview:self.backView];
         [self addSubview:self.customView];
 
         switch (_style) {
             case SECustomViewRedeemT:
             {
-                [self addSubview:self.backView];
                 
-                self.customTitle.text = @"redeem^额外参数";
-                [self.customTitle sizeToFit];
-                self.customTitle.centerX = _customView.width/2;
+                
+
                 
                 UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedAction:)];
                 [self addGestureRecognizer:tap];
                 tap.delegate = self;
              }
                 break;
+            case SECustomViewCDKey:
+            {
+
                 
+                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedAction:)];
+                [self addGestureRecognizer:tap];
+                tap.delegate = self;
+                
+                
+            }
+                break;
             default:
                 break;
         }        
@@ -302,7 +362,20 @@
 }
 -(void)enSureAct
 {
-    self.finalStr = _extralText.text;
+    switch (_style) {
+        case SECustomViewCDKey:
+            self.finalStr = _cdkeyText.text;
+            break;
+        case SECustomViewRedeemT:
+            self.finalStr = _extralText.text;
+            break;
+            
+        default:
+            break;
+    }
+    
+
+    
     if(_customblock)
     {
         _customblock(self.finalStr);
@@ -312,11 +385,17 @@
 
 
 -(void)tapGesturedAction:(UIGestureRecognizer *)gesture{
-    
-    [_extralText resignFirstResponder];
-    [_extralText endEditing:YES];
-    [_extralText resignFirstResponder];
-    [_extralText endEditing:YES];
+    if(_extralText)
+    {
+        [_extralText resignFirstResponder];
+        [_extralText endEditing:YES];
+    }
+    if(_cdkeyText)
+    {
+        [_cdkeyText resignFirstResponder];
+        [_cdkeyText endEditing:YES];
+    }
+
     
     
 }
@@ -326,5 +405,13 @@
     [_extralText resignFirstResponder];
     [_extralText resignFirstResponder];
     return YES;
+}
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    [_cdkeyText resignFirstResponder];
+    [_cdkeyText endEditing:YES];
+
+    
+    
 }
 @end
