@@ -64,7 +64,7 @@
     }];
 }
 
--(void)redeemTCDkeywithAccounts:(NSString *)accounts WithMode:(NSString *)modes withkeys:(NSString *)keys WithSuccess:(void (^)())success failure:(void (^)())failure
+-(void)redeemTCDkeywithAccounts:(NSString *)accounts WithMode:(NSString *)modes withkeys:(NSString *)keys WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
@@ -92,7 +92,7 @@
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         if(success)
         {
-            success();
+            success(responseObject);
         }
         if([weakSelf.delegate respondsToSelector:@selector(handleReceiveListData:)])
         {
@@ -107,11 +107,117 @@
         MALog(@"失败---%@",error);
         if(failure)
         {
-            failure();
+            failure(error);
         }
         if([weakSelf.delegate respondsToSelector:@selector(handleFailureData:)])
         {
 //            [weakSelf.delegate handleFailureData:nil];
+        }
+        
+    }];
+}
+
+-(void)redeemCDkeywithAccounts:(NSString *)accounts withkeys:(NSString *)keys WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSString *url = [NSString new];
+    if(!self.password.length)
+    {
+        url = [NSString stringWithFormat:@"http://%@/Api/Command/redeem",self.account];
+    }else
+    {
+        url = [NSString stringWithFormat:@"http://%@/Api/Command/redeem",self.account];
+    }
+    
+    
+    
+    if(accounts.length)
+    {
+        url = [url stringByAppendingString:[NSString stringWithFormat:@" %@",accounts]];
+    }
+    url = [url stringByAppendingString:[NSString stringWithFormat:@" %@",keys]];
+    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
+    
+    
+    MALog(@"%@",url);
+    WEAK_SELF;
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        if(success)
+        {
+            success(responseObject);
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleReceiveListData:)])
+        {
+            //            [weakSelf.delegate handleReceiveListData:responseObject];
+        }
+        MALog(@"请求成功---%@",[responseObject class]);
+        
+        
+        
+        
+    }  failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        MALog(@"失败---%@",error);
+        if(failure)
+        {
+            failure(error);
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleFailureData:)])
+        {
+            //            [weakSelf.delegate handleFailureData:nil];
+        }
+        
+    }];
+}
+
+-(void)addlicensewithAccounts:(NSString *)accounts withGameIDs:(NSString *)gameIDs WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSString *url = [NSString new];
+    if(!self.password.length)
+    {
+        url = [NSString stringWithFormat:@"http://%@/Api/Command/addlicense",self.account];
+    }else
+    {
+        url = [NSString stringWithFormat:@"http://%@/Api/Command/addlicense",self.account];
+    }
+    
+    
+    
+    if(accounts.length)
+    {
+        url = [url stringByAppendingString:[NSString stringWithFormat:@" %@",accounts]];
+    }
+    url = [url stringByAppendingString:[NSString stringWithFormat:@" %@",gameIDs]];
+    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
+    
+    
+    MALog(@"%@",url);
+    WEAK_SELF;
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        if(success)
+        {
+            success(responseObject);
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleReceiveListData:)])
+        {
+            //            [weakSelf.delegate handleReceiveListData:responseObject];
+        }
+        MALog(@"请求成功---%@",[responseObject class]);
+        
+        
+        
+        
+    }  failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        MALog(@"失败---%@",error);
+        if(failure)
+        {
+            failure(error);
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleFailureData:)])
+        {
+            //            [weakSelf.delegate handleFailureData:nil];
         }
         
     }];

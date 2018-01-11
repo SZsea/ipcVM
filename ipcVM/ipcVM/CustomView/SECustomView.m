@@ -98,12 +98,20 @@
                 _sighTitle.y = _extralText.y + _extralText.height + 8.f;
             }
                 break;
-            case SECustomViewCDKey:
+            case SECustomViewCDKey: case SECustomViewRedeem:
             {
                 _sighTitle.width = _customView.width - 16;
                 _sighTitle.height = 64.f;
-                
                 NSString *text = @"可输入多组Cdkey,并且以"",""的方式隔开例如:key1,key2,key3\n请不要输入不必要的字符";
+                NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:text];
+                _sighTitle.attributedText = AttributedStr;
+                _sighTitle.y = _customTitle.y + _customTitle.height + 8.f;
+            }
+            case SECustomViewAddlicense:
+            {
+                _sighTitle.width = _customView.width - 16;
+                _sighTitle.height = 64.f;
+                NSString *text = @"可输入多组appIDs/subIDs,并且以"",""的方式隔开例如:key1,key2,key3\n请不要输入不必要的字符";
                 NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:text];
                 _sighTitle.attributedText = AttributedStr;
                 _sighTitle.y = _customTitle.y + _customTitle.height + 8.f;
@@ -135,12 +143,16 @@
                 [self.customTitle sizeToFit];
                 self.customTitle.centerX = _customView.width/2;
                 break;
-            case SECustomViewCDKey:
+            case SECustomViewCDKey: case SECustomViewRedeem:
                 self.customTitle.text = @"CDKey";
                 [self.customTitle sizeToFit];
                 self.customTitle.centerX = _customView.width/2;
                 break;
-                
+             case SECustomViewAddlicense:
+                self.customTitle.text = @"addlicense";
+                [self.customTitle sizeToFit];
+                self.customTitle.centerX = _customView.width/2;
+                break;
             default:
                 break;
         }
@@ -191,7 +203,7 @@
                
            }
                break;
-           case SECustomViewCDKey:
+           case SECustomViewCDKey:  case SECustomViewRedeem: case SECustomViewAddlicense:
            {
                _customView.height = SCREEN_HEIGHT /2;
                _customView.centerX = SCREEN_WIDTH/2;
@@ -284,19 +296,15 @@
         switch (_style) {
             case SECustomViewRedeemT:
             {
-                
-                
-
-                
+                     
                 UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedAction:)];
                 [self addGestureRecognizer:tap];
                 tap.delegate = self;
              }
                 break;
-            case SECustomViewCDKey:
+            case SECustomViewCDKey: case SECustomViewRedeem: case SECustomViewAddlicense:
             {
 
-                
                 UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedAction:)];
                 [self addGestureRecognizer:tap];
                 tap.delegate = self;
@@ -363,7 +371,7 @@
 -(void)enSureAct
 {
     switch (_style) {
-        case SECustomViewCDKey:
+        case SECustomViewCDKey: case SECustomViewRedeem: case SECustomViewAddlicense:
             self.finalStr = _cdkeyText.text;
             break;
         case SECustomViewRedeemT:
