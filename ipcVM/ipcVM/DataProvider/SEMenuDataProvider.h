@@ -20,4 +20,10 @@
 
 
 -(void)addlicensewithAccounts:(NSString *)accounts withGameIDs:(NSString *)gameIDs WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure;
+
+
+-(void)startwithAccounts:(NSString *)accounts WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure;
+
+
+-(void)stopwithAccounts:(NSString *)accounts WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure;
 @end

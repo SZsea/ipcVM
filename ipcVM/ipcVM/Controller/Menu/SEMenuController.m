@@ -82,7 +82,15 @@
         }else if([_operateKeyWord isEqualToString:@"addlicense"])
         {
           _customView = [[SECustomView alloc] initWithstyle:SECustomViewAddlicense];
-            
+        }else if([_operateKeyWord isEqualToString:@"start"])
+        {
+           _customView = [[SECustomView alloc] initWithstyle:SECustomViewStart];
+        }else if([_operateKeyWord isEqualToString:@"stop"])
+        {
+           _customView = [[SECustomView alloc] initWithstyle:SECustomViewStop];
+        }else if([_operateKeyWord isEqualToString:@"pause"])
+        {
+            _customView = [[SECustomView alloc] initWithstyle:SECustomViewPause];
         }
         
 
@@ -323,6 +331,44 @@
                 }];
                 
             }];
+            
+        }
+            break;
+       case SECustomViewStart:
+        {
+            WEAK_SELF;
+            [MAProgressHUD show];
+            [(SEMenuDataProvider *)weakSelf.dataProvider startwithAccounts:itemString
+                                                               WithSuccess:^(id  _Nonnull responseObject){
+                                                                   ItemBase *item = [[ItemBase alloc] init];
+                                                                   [item analyzeNetWorkData:responseObject];
+                                                                   [MAProgressHUD showInfoWithTxt:item.result];
+                                                                   [weakSelf.navigationController popViewControllerAnimated:YES];
+                
+            }
+                                                                   failure:^(NSError * _Nonnull error){
+                                                                       [MAProgressHUD showErrorWithTxt:error];
+                
+            }];
+        }
+            break;
+        case SECustomViewStop:
+        {
+            WEAK_SELF;
+            [MAProgressHUD show];
+            [(SEMenuDataProvider *)weakSelf.dataProvider stopwithAccounts:itemString
+                                                               WithSuccess:^(id  _Nonnull responseObject){
+                                                                   ItemBase *item = [[ItemBase alloc] init];
+                                                                   [item analyzeNetWorkData:responseObject];
+                                                                   [MAProgressHUD showInfoWithTxt:item.result];
+                                                                   [weakSelf.navigationController popViewControllerAnimated:YES];
+                                                                   
+                                                               }
+                                                                   failure:^(NSError * _Nonnull error){
+                                                                       [MAProgressHUD showErrorWithTxt:error];
+                                                                       
+                                                                   }];
+            
             
         }
             break;
