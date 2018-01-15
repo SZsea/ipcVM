@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, SECustomViewStyle) {
     SECustomViewStart,
     SECustomViewStop,
     SECustomViewPause,
+    SECustomViewPauseSconds,
     SECustomViewResume,
     SECustomView2fa,
     SECustomView2faok,
@@ -28,6 +29,9 @@ typedef NS_ENUM(NSInteger, SECustomViewStyle) {
 
 -(instancetype)initWithstyle:(SECustomViewStyle)style;
 
+-(instancetype)initWithstyle:(SECustomViewStyle)style withExtraString:(NSString *)str;
+
+-(void)p_setextraStr:(NSString *)str;
 
 - (void)showAnimation;
 

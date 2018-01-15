@@ -28,6 +28,8 @@
 
 @property (nonatomic, copy)   void(^customblock)(NSString *);
 
+@property(nonatomic,strong) NSString  *extraStr;
+
 @end
 @implementation SECustomView
 -(UITextView *)cdkeyText
@@ -117,6 +119,18 @@
                 _sighTitle.y = _customTitle.y + _customTitle.height + 8.f;
             }
                 break;
+            case SECustomViewPauseSconds:
+            {
+                _sighTitle.width = _customView.width - 16;
+                _sighTitle.height = 84.f;
+                NSString *text = @"输入多组Sconds,并且以"",""的方式隔开例如:key1,key2,key3\n请不要输入不必要的字符\n可以为空";
+                text = [text stringByAppendingFormat:@"\n当前所选bot:%@",_extraStr];
+                NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:text];
+                _sighTitle.attributedText = AttributedStr;
+                _sighTitle.y = _customTitle.y + _customTitle.height + 8.f;
+            }
+                break;
+            
             default:
                 break;
         }
@@ -150,6 +164,11 @@
                 break;
              case SECustomViewAddlicense:
                 self.customTitle.text = @"addlicense";
+                [self.customTitle sizeToFit];
+                self.customTitle.centerX = _customView.width/2;
+                break;
+            case SECustomViewPauseSconds:
+                self.customTitle.text = @"PauseSconds";
                 [self.customTitle sizeToFit];
                 self.customTitle.centerX = _customView.width/2;
                 break;
@@ -203,7 +222,7 @@
                
            }
                break;
-           case SECustomViewCDKey:  case SECustomViewRedeem: case SECustomViewAddlicense:
+           case SECustomViewCDKey:  case SECustomViewRedeem: case SECustomViewAddlicense: case SECustomViewPauseSconds:
            {
                _customView.height = SCREEN_HEIGHT /2;
                _customView.centerX = SCREEN_WIDTH/2;
@@ -302,7 +321,7 @@
                 tap.delegate = self;
              }
                 break;
-            case SECustomViewCDKey: case SECustomViewRedeem: case SECustomViewAddlicense:
+            case SECustomViewCDKey: case SECustomViewRedeem: case SECustomViewAddlicense:case SECustomViewPauseSconds:
             {
 
                 UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedAction:)];
@@ -314,16 +333,35 @@
                 break;
             default:
                 break;
-        }        
-
-    
-
-        
+        }
         
     }
     return self;
   
 }
+-(instancetype)initWithstyle:(SECustomViewStyle)style withExtraString:(NSString *)str
+{
+    if(self = [super initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)])
+    {
+        self.extraStr = str;
+        self = [self initWithstyle:style];
+        
+    }
+    return self;
+}
+
+-(void)p_setextraStr:(NSString *)str
+{
+    self.extraStr = str;
+    _sighTitle.width = _customView.width - 16;
+    _sighTitle.height = 84.f;
+    NSString *text = @"输入多组Sconds,并且以"",""的方式隔开例如:key1,key2,key3\n请不要输入不必要的字符\n可以为空";
+    text = [text stringByAppendingFormat:@"\n当前所选bot:%@",_extraStr];
+    NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:text];
+    _sighTitle.attributedText = AttributedStr;
+    _sighTitle.y = _customTitle.y + _customTitle.height + 8.f;
+}
+
 
 - (void)showAnimation
 {
@@ -371,7 +409,7 @@
 -(void)enSureAct
 {
     switch (_style) {
-        case SECustomViewCDKey: case SECustomViewRedeem: case SECustomViewAddlicense:
+        case SECustomViewCDKey: case SECustomViewRedeem: case SECustomViewAddlicense: case SECustomViewPauseSconds:
             self.finalStr = _cdkeyText.text;
             break;
         case SECustomViewRedeemT:

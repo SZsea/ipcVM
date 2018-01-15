@@ -26,4 +26,22 @@
 
 
 -(void)stopwithAccounts:(NSString *)accounts WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure;
+
+
+-(void)pauseWithAccounts:(NSString *)accounts WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure;
+
+
+-(void)pauseFWithAccounts:(NSString *)accounts WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure;
+
+
+-(void)pauseTWithAccounts:(NSString *)accounts WithSconds:(NSString *)sconds WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure;
+
+
+-(void)resumeWithAccounts:(NSString *)accounts WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure;
+
+
+-(void)tfaWithAccounts:(NSString *)accounts WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure;
+
+
+-(void)tfaokWithAccounts:(NSString *)accounts WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure;
 @end

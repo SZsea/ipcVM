@@ -327,4 +327,324 @@
         
     }];
 }
+
+-(void)pauseWithAccounts:(NSString *)accounts WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSString *url = [NSString new];
+    if(!self.password.length)
+    {
+        url = [NSString stringWithFormat:@"http://%@/Api/Command/pause",self.account];
+    }else
+    {
+        url = [NSString stringWithFormat:@"http://%@/Api/Command/pause",self.account];
+    }
+    
+    
+    
+    if(accounts.length)
+    {
+        url = [url stringByAppendingString:[NSString stringWithFormat:@" %@",accounts]];
+    }
+    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
+    
+    
+    MALog(@"%@",url);
+    WEAK_SELF;
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        if(success)
+        {
+            success(responseObject);
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleReceiveListData:)])
+        {
+            //            [weakSelf.delegate handleReceiveListData:responseObject];
+        }
+        MALog(@"请求成功---%@",[responseObject class]);
+        
+        
+        
+        
+    }  failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        MALog(@"失败---%@",error);
+        if(failure)
+        {
+            failure(error);
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleFailureData:)])
+        {
+            //            [weakSelf.delegate handleFailureData:nil];
+        }
+        
+    }];
+}
+
+
+-(void)pauseFWithAccounts:(NSString *)accounts WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSString *url = [NSString new];
+    if(!self.password.length)
+    {
+        url = [NSString stringWithFormat:@"http://%@/Api/Command/pause~",self.account];
+    }else
+    {
+        url = [NSString stringWithFormat:@"http://%@/Api/Command/pause~",self.account];
+    }
+    
+    
+    
+    if(accounts.length)
+    {
+        url = [url stringByAppendingString:[NSString stringWithFormat:@" %@",accounts]];
+    }
+    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
+    
+    
+    MALog(@"%@",url);
+    WEAK_SELF;
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        if(success)
+        {
+            success(responseObject);
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleReceiveListData:)])
+        {
+            //            [weakSelf.delegate handleReceiveListData:responseObject];
+        }
+        MALog(@"请求成功---%@",[responseObject class]);
+        
+        
+        
+        
+    }  failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        MALog(@"失败---%@",error);
+        if(failure)
+        {
+            failure(error);
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleFailureData:)])
+        {
+            //            [weakSelf.delegate handleFailureData:nil];
+        }
+        
+    }];
+}
+
+
+
+-(void)pauseTWithAccounts:(NSString *)accounts WithSconds:(NSString *)sconds WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSString *url = [NSString new];
+    if(!self.password.length)
+    {
+        url = [NSString stringWithFormat:@"http://%@/Api/Command/pause&",self.account];
+    }else
+    {
+        url = [NSString stringWithFormat:@"http://%@/Api/Command/pause&",self.account];
+    }
+    
+    
+    
+    if(accounts.length)
+    {
+        url = [url stringByAppendingString:[NSString stringWithFormat:@" %@",accounts]];
+    }
+    if(sconds.length)
+    {
+        url = [url stringByAppendingString:[NSString stringWithFormat:@" %@",sconds]];
+    }
+    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
+    
+    
+    MALog(@"%@",url);
+    WEAK_SELF;
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        if(success)
+        {
+            success(responseObject);
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleReceiveListData:)])
+        {
+            //            [weakSelf.delegate handleReceiveListData:responseObject];
+        }
+        MALog(@"请求成功---%@",[responseObject class]);
+        
+        
+        
+        
+    }  failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        MALog(@"失败---%@",error);
+        if(failure)
+        {
+            failure(error);
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleFailureData:)])
+        {
+            //            [weakSelf.delegate handleFailureData:nil];
+        }
+        
+    }];
+}
+
+-(void)resumeWithAccounts:(NSString *)accounts WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSString *url = [NSString new];
+    if(!self.password.length)
+    {
+        url = [NSString stringWithFormat:@"http://%@/Api/Command/resume",self.account];
+    }else
+    {
+        url = [NSString stringWithFormat:@"http://%@/Api/Command/resume",self.account];
+    }
+    
+    
+    
+    if(accounts.length)
+    {
+        url = [url stringByAppendingString:[NSString stringWithFormat:@" %@",accounts]];
+    }
+    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
+    
+    
+    MALog(@"%@",url);
+    WEAK_SELF;
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        if(success)
+        {
+            success(responseObject);
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleReceiveListData:)])
+        {
+            //            [weakSelf.delegate handleReceiveListData:responseObject];
+        }
+        MALog(@"请求成功---%@",[responseObject class]);
+        
+        
+        
+        
+    }  failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        MALog(@"失败---%@",error);
+        if(failure)
+        {
+            failure(error);
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleFailureData:)])
+        {
+            //            [weakSelf.delegate handleFailureData:nil];
+        }
+        
+    }];
+}
+
+
+-(void)tfaWithAccounts:(NSString *)accounts WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSString *url = [NSString new];
+    if(!self.password.length)
+    {
+        url = [NSString stringWithFormat:@"http://%@/Api/Command/2fa",self.account];
+    }else
+    {
+        url = [NSString stringWithFormat:@"http://%@/Api/Command/2fa",self.account];
+    }
+    
+    
+    
+    if(accounts.length)
+    {
+        url = [url stringByAppendingString:[NSString stringWithFormat:@" %@",accounts]];
+    }
+    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
+    
+    
+    MALog(@"%@",url);
+    WEAK_SELF;
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        if(success)
+        {
+            success(responseObject);
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleReceiveListData:)])
+        {
+            //            [weakSelf.delegate handleReceiveListData:responseObject];
+        }
+        MALog(@"请求成功---%@",[responseObject class]);
+        
+        
+        
+        
+    }  failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        MALog(@"失败---%@",error);
+        if(failure)
+        {
+            failure(error);
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleFailureData:)])
+        {
+            //            [weakSelf.delegate handleFailureData:nil];
+        }
+        
+    }];
+}
+
+-(void)tfaokWithAccounts:(NSString *)accounts WithSuccess:(void (^)(id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSString *url = [NSString new];
+    if(!self.password.length)
+    {
+        url = [NSString stringWithFormat:@"http://%@/Api/Command/2faok",self.account];
+    }else
+    {
+        url = [NSString stringWithFormat:@"http://%@/Api/Command/2faok",self.account];
+    }
+    
+    
+    
+    if(accounts.length)
+    {
+        url = [url stringByAppendingString:[NSString stringWithFormat:@" %@",accounts]];
+    }
+    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
+    
+    
+    MALog(@"%@",url);
+    WEAK_SELF;
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        if(success)
+        {
+            success(responseObject);
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleReceiveListData:)])
+        {
+            //            [weakSelf.delegate handleReceiveListData:responseObject];
+        }
+        MALog(@"请求成功---%@",[responseObject class]);
+        
+        
+        
+        
+    }  failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        MALog(@"失败---%@",error);
+        if(failure)
+        {
+            failure(error);
+        }
+        if([weakSelf.delegate respondsToSelector:@selector(handleFailureData:)])
+        {
+            //            [weakSelf.delegate handleFailureData:nil];
+        }
+        
+    }];
+}
 @end

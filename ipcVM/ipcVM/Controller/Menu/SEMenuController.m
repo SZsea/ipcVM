@@ -30,6 +30,8 @@
 
 @property (nonatomic,strong)NSString    *extraStr;
 
+@property (nonatomic,strong)NSString   *itemString;
+
 @end
 
 @implementation SEMenuController
@@ -58,7 +60,14 @@
     }
     return _tableView;
 }
-
+- (NSString *)itemString
+{
+    if(!_itemString)
+    {
+        _itemString = [NSString new];
+    }
+    return _itemString;
+}
 - (SECustomView  *)cdKeyView
 {
     if(!_cdKeyView)
@@ -88,11 +97,32 @@
         }else if([_operateKeyWord isEqualToString:@"stop"])
         {
            _customView = [[SECustomView alloc] initWithstyle:SECustomViewStop];
-        }else if([_operateKeyWord isEqualToString:@"pause"])
+        }else if([_operateKeyWord isEqualToString:@"pause"]||[_operateKeyWord isEqualToString:@"pause~"])
         {
             _customView = [[SECustomView alloc] initWithstyle:SECustomViewPause];
+        }else if([_operateKeyWord isEqualToString:@"pause&"])
+        {
+            
+            self.itemString = nil;
+            for(BotItem *item in _listItem.BotItemListArray)
+            {
+                if(item.isSelected)
+                {
+                    self.itemString = [self.itemString stringByAppendingString:[NSString stringWithFormat:@"%@,",item.name]];
+                }
+            }
+            self.itemString = [self.itemString substringWithRange:NSMakeRange(0, self.itemString.length - 1)];
+            _customView = [[SECustomView alloc] initWithstyle:SECustomViewPauseSconds withExtraString:self.itemString];
+        }else if([_operateKeyWord isEqualToString:@"resume"])
+        {
+           _customView = [[SECustomView alloc] initWithstyle:SECustomViewResume];
+        }else if([_operateKeyWord isEqualToString:@"2fa"])
+        {
+            _customView = [[SECustomView alloc] initWithstyle:SECustomView2fa];
+        }else if([_operateKeyWord isEqualToString:@"2faok"])
+        {
+             _customView = [[SECustomView alloc] initWithstyle:SECustomView2faok];
         }
-        
 
 
 
@@ -224,27 +254,30 @@
 
 -(void)enSureAct
 {
-    NSString *itemString = [NSString new];
     
     for(BotItem *item in _listItem.BotItemListArray)
     {
         if(item.isSelected)
         {
-            itemString = [itemString stringByAppendingString:[NSString stringWithFormat:@"%@,",item.name]];
+            self.itemString = [self.itemString stringByAppendingString:[NSString stringWithFormat:@"%@,",item.name]];
         }
     }
-    itemString = [itemString substringWithRange:NSMakeRange(0, itemString.length - 1)];
+    if(self.itemString.length)
+    {
+      self.itemString = [self.itemString substringWithRange:NSMakeRange(0, self.itemString.length - 1)];
+    }
+    
     switch (self.customView.style) {
         case SECustomViewRedeem:
         {
-           if(itemString.length)
+           if(self.itemString.length)
            {
                [self.navigationController.view addSubview:self.customView];
                [self.customView showAnimation];
                WEAK_SELF;
                [self.customView setRightBtnblock:^(NSString *modes){
                    [MAProgressHUD show];
-                   [(SEMenuDataProvider *)weakSelf.dataProvider redeemCDkeywithAccounts:itemString
+                   [(SEMenuDataProvider *)weakSelf.dataProvider redeemCDkeywithAccounts:weakSelf.itemString
                                                                                withkeys:modes
                                                                             WithSuccess:^(id  _Nonnull responseObject){
                                                                                 ItemBase *item = [[ItemBase alloc] init];
@@ -283,7 +316,7 @@
                 [weakSelf.cdKeyView showAnimation];
                 [weakSelf.cdKeyView setRightBtnblock:^(NSString *modes) {
                     [MAProgressHUD show];
-                    [(SEMenuDataProvider *)weakSelf.dataProvider redeemTCDkeywithAccounts:itemString
+                    [(SEMenuDataProvider *)weakSelf.dataProvider redeemTCDkeywithAccounts:weakSelf.itemString
                                                                                  WithMode:weakSelf.extraStr
                                                                                  withkeys:modes
                                                                               WithSuccess:^(id  _Nonnull responseObject){
@@ -316,7 +349,7 @@
             WEAK_SELF;
             [self.customView setRightBtnblock:^(NSString *modes) {
                 [MAProgressHUD show];
-                [(SEMenuDataProvider *)weakSelf.dataProvider addlicensewithAccounts:itemString
+                [(SEMenuDataProvider *)weakSelf.dataProvider addlicensewithAccounts:weakSelf.itemString
                                                                         withGameIDs:modes
                                                                         WithSuccess:^(id  _Nonnull responseObject){
                                                                             ItemBase *item = [[ItemBase alloc] init];
@@ -338,7 +371,7 @@
         {
             WEAK_SELF;
             [MAProgressHUD show];
-            [(SEMenuDataProvider *)weakSelf.dataProvider startwithAccounts:itemString
+            [(SEMenuDataProvider *)weakSelf.dataProvider startwithAccounts:self.itemString
                                                                WithSuccess:^(id  _Nonnull responseObject){
                                                                    ItemBase *item = [[ItemBase alloc] init];
                                                                    [item analyzeNetWorkData:responseObject];
@@ -356,7 +389,7 @@
         {
             WEAK_SELF;
             [MAProgressHUD show];
-            [(SEMenuDataProvider *)weakSelf.dataProvider stopwithAccounts:itemString
+            [(SEMenuDataProvider *)weakSelf.dataProvider stopwithAccounts:self.itemString
                                                                WithSuccess:^(id  _Nonnull responseObject){
                                                                    ItemBase *item = [[ItemBase alloc] init];
                                                                    [item analyzeNetWorkData:responseObject];
@@ -370,6 +403,112 @@
                                                                    }];
             
             
+        }
+            break;
+        case SECustomViewPause:
+        {
+            WEAK_SELF;
+            [MAProgressHUD show];
+            [(SEMenuDataProvider *)weakSelf.dataProvider pauseWithAccounts:self.itemString
+                                                              WithSuccess:^(id  _Nonnull responseObject){
+                                                                  ItemBase *item = [[ItemBase alloc] init];
+                                                                  [item analyzeNetWorkData:responseObject];
+                                                                  [MAProgressHUD showInfoWithTxt:item.result];
+                                                                  [weakSelf.navigationController popViewControllerAnimated:YES];
+                                                                  
+                                                              }
+                                                                  failure:^(NSError * _Nonnull error){
+                                                                      [MAProgressHUD showErrorWithTxt:error];
+                                                                      
+                                                                  }];
+        }
+            break;
+        case SECustomViewPauseSconds:
+        {
+
+            [self.navigationController.view addSubview:self.customView];
+            self.itemString = nil;
+            for(BotItem *item in _listItem.BotItemListArray)
+            {
+                if(item.isSelected)
+                {
+                    self.itemString = [self.itemString stringByAppendingString:[NSString stringWithFormat:@"%@,",item.name]];
+                }
+            }
+            self.itemString = [self.itemString substringWithRange:NSMakeRange(0, self.itemString.length - 1)];
+            [self.customView p_setextraStr:self.itemString];
+            [self.customView showAnimation];
+            WEAK_SELF;
+            [self.customView setRightBtnblock:^(NSString *modes){
+                [MAProgressHUD show];
+                [(SEMenuDataProvider *)weakSelf.dataProvider pauseTWithAccounts:weakSelf.itemString
+                                                                     WithSconds:modes
+                                                                    WithSuccess:^(id  _Nonnull responseObject){
+                                                                            ItemBase *item = [[ItemBase alloc] init];
+                                                                            [item analyzeNetWorkData:responseObject];
+                                                                            [MAProgressHUD showInfoWithTxt:item.result];
+                                                                            [weakSelf.navigationController popViewControllerAnimated:YES];
+                                                                            
+                                                                        }
+                                                                        failure:^(NSError * _Nonnull error){
+                                                                                [MAProgressHUD showErrorWithTxt:error];
+                                                                                
+                                                                            }];
+            }];
+        }
+            break;
+        case SECustomViewResume:
+        {
+            WEAK_SELF;
+            [MAProgressHUD show];
+            [(SEMenuDataProvider *)weakSelf.dataProvider resumeWithAccounts:self.itemString
+                                                                WithSuccess:^(id  _Nonnull responseObject){
+                                                                   ItemBase *item = [[ItemBase alloc] init];
+                                                                   [item analyzeNetWorkData:responseObject];
+                                                                   [MAProgressHUD showInfoWithTxt:item.result];
+                                                                   [weakSelf.navigationController popViewControllerAnimated:YES];
+                                                                   
+                                                               }
+                                                                    failure:^(NSError * _Nonnull error){
+                                                                       [MAProgressHUD showErrorWithTxt:error];
+                                                                       
+                                                                   }];
+        }
+            break;
+        case SECustomView2fa:
+        {
+            WEAK_SELF;
+            [MAProgressHUD show];
+            [(SEMenuDataProvider *)weakSelf.dataProvider tfaWithAccounts:self.itemString
+                                                                WithSuccess:^(id  _Nonnull responseObject){
+                                                                    ItemBase *item = [[ItemBase alloc] init];
+                                                                    [item analyzeNetWorkData:responseObject];
+                                                                    [MAProgressHUD showInfoWithTxt:item.result];
+                                                                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                                                                    
+                                                                }
+                                                                    failure:^(NSError * _Nonnull error){
+                                                                        [MAProgressHUD showErrorWithTxt:error];
+                                                                        
+                                                                    }];
+        }
+            break;
+        case SECustomView2faok:
+        {
+            WEAK_SELF;
+            [MAProgressHUD show];
+            [(SEMenuDataProvider *)weakSelf.dataProvider tfaokWithAccounts:self.itemString
+                                                             WithSuccess:^(id  _Nonnull responseObject){
+                                                                 ItemBase *item = [[ItemBase alloc] init];
+                                                                 [item analyzeNetWorkData:responseObject];
+                                                                 [MAProgressHUD showInfoWithTxt:item.result];
+                                                                 [weakSelf.navigationController popViewControllerAnimated:YES];
+                                                                 
+                                                             }
+                                                                 failure:^(NSError * _Nonnull error){
+                                                                     [MAProgressHUD showErrorWithTxt:error];
+                                                                     
+                                                                 }];
         }
             break;
         default:

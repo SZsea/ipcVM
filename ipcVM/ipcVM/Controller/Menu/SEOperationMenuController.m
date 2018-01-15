@@ -38,7 +38,7 @@
     if(!_menuArray)
     {
         _menuArray = [NSMutableArray new];
-        NSArray *command = [[NSArray alloc] initWithObjects:@"redeem",@"redeem^",@"addlicense",@"start",@"stop",@"pause",@"resume",@"2fa",@"2faok", nil];
+        NSArray *command = [[NSArray alloc] initWithObjects:@"redeem",@"redeem^",@"addlicense",@"start",@"stop",@"pause",@"pause~",@"pause&",@"resume",@"2fa",@"2faok", nil];
         [_menuArray addObject:command];
 
     }
