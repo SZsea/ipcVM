@@ -41,14 +41,14 @@
 {
     _label.text = menu;
     [_label sizeToFit];
-    _label.centerY = OPERATIONITEMHIGHT/2;
+    _label.centerY = OPERATIONMENUHIGHT/2;
     _label.centerX = SCREEN_WIDTH/2;
     
     
 }
 - (void)setUpBuildUI
 {
-    _line= [[UIView alloc] initWithFrame:CGRectMake(0, OPERATIONITEMHIGHT -1.f, SCREEN_WIDTH, 0.5f)];
+    _line= [[UIView alloc] initWithFrame:CGRectMake(0, OPERATIONMENUHIGHT -1.f, SCREEN_WIDTH, 0.5f)];
     _line.backgroundColor = [UIColor blackColor];
     [self.contentView addSubview:_line];
     [self.contentView addSubview:self.label];

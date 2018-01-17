@@ -20,6 +20,9 @@
 		1451D9E41FF337E300A6F511 /* ipcVMUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451D9E31FF337E300A6F511 /* ipcVMUITests.m */; };
 		1451D9F31FF33D3600A6F511 /* SELoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451D9F21FF33D3600A6F511 /* SELoginController.m */; };
 		1451DA031FF3497300A6F511 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451D9FD1FF3497300A6F511 /* UIView+Extension.m */; };
+		149E1BD2200F38B000B86593 /* SEOperationItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149E1BD1200F38B000B86593 /* SEOperationItemController.m */; };
+		149E1BD5200F41CF00B86593 /* SEOperationItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 149E1BD4200F41CF00B86593 /* SEOperationItemCell.m */; };
+		149E1BD8200F475C00B86593 /* SEOperationItemDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 149E1BD7200F475C00B86593 /* SEOperationItemDataProvider.m */; };
 		14B7B0242003770F00A262AE /* MAProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7B0232003770E00A262AE /* MAProgressHUD.m */; };
 		14B7B0302003773300A262AE /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7B0272003773300A262AE /* SVIndefiniteAnimatedView.m */; };
 		14B7B0312003773300A262AE /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7B0292003773300A262AE /* SVProgressAnimatedView.m */; };
@@ -132,6 +135,12 @@
 		1451D9FC1FF3497300A6F511 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		1451D9FD1FF3497300A6F511 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		1451DA081FF34E7100A6F511 /* SEPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEPrefixHeader.pch; sourceTree = "<group>"; };
+		149E1BD0200F38B000B86593 /* SEOperationItemController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEOperationItemController.h; sourceTree = "<group>"; };
+		149E1BD1200F38B000B86593 /* SEOperationItemController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEOperationItemController.m; sourceTree = "<group>"; };
+		149E1BD3200F41CF00B86593 /* SEOperationItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEOperationItemCell.h; sourceTree = "<group>"; };
+		149E1BD4200F41CF00B86593 /* SEOperationItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEOperationItemCell.m; sourceTree = "<group>"; };
+		149E1BD6200F475C00B86593 /* SEOperationItemDataProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEOperationItemDataProvider.h; sourceTree = "<group>"; };
+		149E1BD7200F475C00B86593 /* SEOperationItemDataProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEOperationItemDataProvider.m; sourceTree = "<group>"; };
 		14B7B0222003770E00A262AE /* MAProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAProgressHUD.h; sourceTree = "<group>"; };
 		14B7B0232003770E00A262AE /* MAProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAProgressHUD.m; sourceTree = "<group>"; };
 		14B7B0262003773300A262AE /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
@@ -308,6 +317,8 @@
 				14C922D61FFCD273008D7D87 /* SEItemManagerController.m */,
 				14F3ABCF1FFDC5DE00E89C82 /* SEOperationMenuController.h */,
 				14F3ABD01FFDC5DE00E89C82 /* SEOperationMenuController.m */,
+				149E1BD0200F38B000B86593 /* SEOperationItemController.h */,
+				149E1BD1200F38B000B86593 /* SEOperationItemController.m */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -446,6 +457,8 @@
 				14C922911FFC817F008D7D87 /* SEMenuTableViewCell.m */,
 				14F3ABD21FFDD33800E89C82 /* SEOperationTableViewCell.h */,
 				14F3ABD31FFDD33800E89C82 /* SEOperationTableViewCell.m */,
+				149E1BD3200F41CF00B86593 /* SEOperationItemCell.h */,
+				149E1BD4200F41CF00B86593 /* SEOperationItemCell.m */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -632,6 +645,8 @@
 				143669281FFB2AAC006038AE /* SEMenuDataProvider.m */,
 				14C922D81FFCD761008D7D87 /* SEItemMangerDataProvider.h */,
 				14C922D91FFCD761008D7D87 /* SEItemMangerDataProvider.m */,
+				149E1BD6200F475C00B86593 /* SEOperationItemDataProvider.h */,
+				149E1BD7200F475C00B86593 /* SEOperationItemDataProvider.m */,
 			);
 			path = DataProvider;
 			sourceTree = "<group>";
@@ -855,8 +870,10 @@
 				14C922D11FFCC4D0008D7D87 /* NSBundle+MJRefresh.m in Sources */,
 				14B7B0332003773300A262AE /* SVProgressHUD.m in Sources */,
 				14C922D21FFCC4D0008D7D87 /* UIScrollView+MJExtension.m in Sources */,
+				149E1BD2200F38B000B86593 /* SEOperationItemController.m in Sources */,
 				14C922D31FFCC4D0008D7D87 /* UIScrollView+MJRefresh.m in Sources */,
 				140AF5BE1FFF715E00E3C3BC /* SECustomView.m in Sources */,
+				149E1BD5200F41CF00B86593 /* SEOperationItemCell.m in Sources */,
 				14C922D41FFCC4D0008D7D87 /* UIView+MJExtension.m in Sources */,
 				143669301FFB8C6A006038AE /* NSDictionary+MAExtension.m in Sources */,
 				1436692C1FFB5A6D006038AE /* BotListItem.m in Sources */,
@@ -904,6 +921,7 @@
 				14F3ABD11FFDC5DE00E89C82 /* SEOperationMenuController.m in Sources */,
 				14D4C9981FF4D3F9001BC72C /* SEBaseViewController.m in Sources */,
 				14D4C9A51FF4DCF3001BC72C /* ItemBase.m in Sources */,
+				149E1BD8200F475C00B86593 /* SEOperationItemDataProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

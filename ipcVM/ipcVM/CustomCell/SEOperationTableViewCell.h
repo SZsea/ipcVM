@@ -7,7 +7,7 @@
 //
 
 
-#define OPERATIONITEMHIGHT  64.f
+#define OPERATIONMENUHIGHT  64.f
 @interface SEOperationTableViewCell : UITableViewCell
 
 @property(nonatomic,strong)NSString *menu;

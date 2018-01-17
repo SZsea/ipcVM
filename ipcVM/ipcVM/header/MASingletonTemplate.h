@@ -14,6 +14,7 @@
 #define KNotificationSelectedAll                         @"KNotificationSelectedAll"
 #define KNotificationEnSureAction                        @"KNotificationEnSureAction"
 #define KNotificationSelectedBot                         @"KNotificationSelectedBot"
+#define KNotificationAddNewBot                           @"KNotificationAddNewBot"
 
 
 /** 描述 */

@@ -9,11 +9,16 @@
 #import "SEOperationMenuController.h"
 #import "SEOperationTableViewCell.h"
 #import "SEMenuController.h"
+#import "SEOperationItemController.h"
+
+
 @interface SEOperationMenuController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
 
 @property (nonatomic,strong)NSMutableArray *menuArray;
+
+@property (nonatomic,strong)NSMutableArray *menuTitle;
 
 @end
 
@@ -33,13 +38,27 @@
     }
     return _tableView;
 }
+
+-(NSMutableArray *)menuTitle
+{
+    if(!_menuTitle)
+    {
+
+         _menuTitle = [[NSMutableArray alloc] initWithObjects:@"命令 / Command",@"BOT编辑",nil];
+    }
+    return _menuTitle;
+}
+
+
 -(NSMutableArray *)menuArray
 {
     if(!_menuArray)
     {
         _menuArray = [NSMutableArray new];
-        NSArray *command = [[NSArray alloc] initWithObjects:@"redeem",@"redeem^",@"addlicense",@"start",@"stop",@"pause",@"pause~",@"pause&",@"resume",@"2fa",@"2faok", nil];
-        [_menuArray addObject:command];
+        NSArray *command1 = [[NSArray alloc] initWithObjects:@"redeem",@"redeem^",@"addlicense",@"start",@"stop",@"pause",@"pause~",@"pause&",@"resume",@"2fa",@"2faok", nil];
+        NSArray *command2 = [[NSArray alloc] initWithObjects:@"BOT操作", nil];
+        [_menuArray addObject:command1];
+        [_menuArray addObject:command2];
 
     }
     return _menuArray;
@@ -72,11 +91,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return  OPERATIONITEMHIGHT;
+    return  OPERATIONMENUHIGHT;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSArray *array = self.menuArray[0];
+    NSArray *array = self.menuArray[section];
     return array.count;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -102,7 +121,7 @@
 {
 
     UILabel *label = [[UILabel alloc]  init];
-    label.text  = @"命令 / Command";
+    label.text  = self.menuTitle[section];
     label.font = MANUIFontWithSize(15.f);
     [label sizeToFit];
     label.textColor = [UIColor blackColor];
@@ -112,9 +131,26 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SEMenuController *vc = [[SEMenuController alloc] init];
-    vc.operateKeyWord = self.menuArray[indexPath.section][indexPath.row];
-    [self.navigationController pushViewController:vc animated:YES];
+    switch (indexPath.section) {
+        case 0:
+        {
+            SEMenuController *vc = [[SEMenuController alloc] init];
+            vc.operateKeyWord = self.menuArray[indexPath.section][indexPath.row];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 1:
+        {
+            SEOperationItemController *vc = [[SEOperationItemController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
+            
+        default:
+            break;
+    }
+
     
 
 }

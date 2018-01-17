@@ -8,6 +8,13 @@
 
 #import "DataProviderBase.h"
 #import "Session.h"
+@interface DataProviderBase()
+
+
+
+
+
+@end
 
 @implementation DataProviderBase
 
@@ -45,4 +52,7 @@
     }
     return _password;
 }
+
+
+
 @end
