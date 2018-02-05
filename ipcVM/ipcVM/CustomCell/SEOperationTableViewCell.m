@@ -19,7 +19,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self  = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self setUpBuildUI];
-        //        self.backgroundColor = [UIColor redColor];
+//                self.backgroundColor = [UIColor redColor];
     }
     
     return self;

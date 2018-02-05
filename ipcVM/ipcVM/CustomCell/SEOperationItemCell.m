@@ -20,7 +20,11 @@
 
 @property(nonatomic,strong)UILabel   *selectLab;
 
-@property(nonatomic,strong)UIButton  *enSureBtn;
+@property(nonatomic,strong)UILabel  *enSureBtn;
+
+
+@property(nonatomic,strong)UIButton  *deleteBtn;
+
 
 
 @end
@@ -30,23 +34,35 @@
     
     
 }
--(UIButton *)enSureBtn
+-(UILabel *)enSureBtn
 {
     if(!_enSureBtn)
     {
-        _enSureBtn = [[UIButton alloc] init];
-        [_enSureBtn setTitle:@"添加BOT" forState: UIControlStateNormal];
-        [_enSureBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        _enSureBtn.titleLabel.font = MABUIFontWithSize(15.f);
-        _enSureBtn.size = CGSizeMake( SCREEN_WIDTH/2, OPERATIONITEMHIGHT/3*2);
+        _enSureBtn = [[UILabel alloc] init];
+        _enSureBtn.text =@"添加BOT";
+        _enSureBtn.font = MABUIFontWithSize(15.f);
+        [_enSureBtn sizeToFit];
+        
+
         _enSureBtn.centerY = OPERATIONITEMHIGHT/2;
         _enSureBtn.centerX = SCREEN_WIDTH/2;
-        [_enSureBtn addTarget:self action:@selector(enSureAct) forControlEvents:UIControlEventTouchDown];
         
     }
     return _enSureBtn;
     
     
+}
+
+-(UIButton *)deleteBtn
+{
+    if(!_deleteBtn)
+    {
+        _deleteBtn = [[UIButton alloc] init];
+        
+        
+        
+    }
+    return _deleteBtn;
 }
 
 -(UIButton *)selectBtn
@@ -105,7 +121,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self  = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self setUpBuildUI];
-        //        self.backgroundColor = [UIColor redColor];
+//        self.backgroundColor = [UIColor redColor];
     }
     
     return self;
@@ -115,7 +131,7 @@
     
     [self.contentView addSubview:self.nameLabel];
     [self.contentView addSubview:self.discLabel];
-    [self.contentView addSubview:self.selectBtn];
+//    [self.contentView addSubview:self.selectBtn];
     [self.contentView addSubview:self.enSureBtn];
     _line= [[UIView alloc] initWithFrame:CGRectMake(0, OPERATIONITEMHIGHT -1.f, SCREEN_WIDTH, 0.5f)];
     _line.backgroundColor = [UIColor blackColor];
@@ -206,10 +222,6 @@
 
 
 
--(void)enSureAct
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:KNotificationAddNewBot object:nil];
-}
 
 
 @end

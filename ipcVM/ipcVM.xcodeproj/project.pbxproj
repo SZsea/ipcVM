@@ -86,6 +86,7 @@
 		14D4C9CA1FF4E4F7001BC72C /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D4C9C91FF4E4F7001BC72C /* Session.m */; };
 		14F3ABD11FFDC5DE00E89C82 /* SEOperationMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F3ABD01FFDC5DE00E89C82 /* SEOperationMenuController.m */; };
 		14F3ABD41FFDD33800E89C82 /* SEOperationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F3ABD31FFDD33800E89C82 /* SEOperationTableViewCell.m */; };
+		14FB0A84202848BC00DFCCD3 /* SEBotEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FB0A83202848BC00DFCCD3 /* SEBotEditorController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -270,6 +271,8 @@
 		14F3ABD01FFDC5DE00E89C82 /* SEOperationMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEOperationMenuController.m; sourceTree = "<group>"; };
 		14F3ABD21FFDD33800E89C82 /* SEOperationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEOperationTableViewCell.h; sourceTree = "<group>"; };
 		14F3ABD31FFDD33800E89C82 /* SEOperationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEOperationTableViewCell.m; sourceTree = "<group>"; };
+		14FB0A82202848BC00DFCCD3 /* SEBotEditorController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEBotEditorController.h; sourceTree = "<group>"; };
+		14FB0A83202848BC00DFCCD3 /* SEBotEditorController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEBotEditorController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +314,7 @@
 		1406A1E71FF5EDDA00B632D6 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				14FB0A802028485700DFCCD3 /* BotEditor */,
 				1406A1E81FF5EE6800B632D6 /* SEMenuController.h */,
 				1406A1E91FF5EE6800B632D6 /* SEMenuController.m */,
 				14C922D51FFCD273008D7D87 /* SEItemManagerController.h */,
@@ -715,6 +719,15 @@
 			path = fmdb;
 			sourceTree = "<group>";
 		};
+		14FB0A802028485700DFCCD3 /* BotEditor */ = {
+			isa = PBXGroup;
+			children = (
+				14FB0A82202848BC00DFCCD3 /* SEBotEditorController.h */,
+				14FB0A83202848BC00DFCCD3 /* SEBotEditorController.m */,
+			);
+			path = BotEditor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -917,6 +930,7 @@
 				14D4C98C1FF4D0F8001BC72C /* AFNetworkActivityIndicatorManager.m in Sources */,
 				1406A1EA1FF5EE6800B632D6 /* SEMenuController.m in Sources */,
 				14B7B0342003773300A262AE /* SVRadialGradientLayer.m in Sources */,
+				14FB0A84202848BC00DFCCD3 /* SEBotEditorController.m in Sources */,
 				1451D9F31FF33D3600A6F511 /* SELoginController.m in Sources */,
 				14F3ABD11FFDC5DE00E89C82 /* SEOperationMenuController.m in Sources */,
 				14D4C9981FF4D3F9001BC72C /* SEBaseViewController.m in Sources */,

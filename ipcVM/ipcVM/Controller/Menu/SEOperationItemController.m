@@ -10,7 +10,7 @@
 #import "SEOperationItemCell.h"
 #import "BotListItem.h"
 #import "SEOperationItemDataProvider.h"
-
+#import "BotItem.h"
 @interface SEOperationItemController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -30,7 +30,6 @@
         [self.navigationItem setTitle:@"Bot列表"];
 //        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:self.rightBtn];
 //        self.navigationItem.rightBarButtonItem = rightItem;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enSureAct) name:KNotificationAddNewBot object:nil];
         
     }
     return self;
@@ -123,12 +122,18 @@
     return cell;
 }
 
-
-
--(void)enSureAct
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    BotItem *item =_listItem.BotItemListArray[indexPath.row];
+    if(item.name.length)
+    {
+        MALog(@"%@",item.name);
+    }
+
     
 }
+
+
     
     
     
