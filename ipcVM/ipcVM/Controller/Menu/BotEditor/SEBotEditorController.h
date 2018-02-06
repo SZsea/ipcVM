@@ -10,4 +10,8 @@
 
 @interface SEBotEditorController : SEBaseViewController
 
+
+
+-(instancetype)initWithBotName:(NSString *)name;
+
 @end

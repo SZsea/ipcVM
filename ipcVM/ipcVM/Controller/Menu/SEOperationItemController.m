@@ -11,6 +11,7 @@
 #import "BotListItem.h"
 #import "SEOperationItemDataProvider.h"
 #import "BotItem.h"
+#import "SEBotEditorController.h"
 @interface SEOperationItemController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -127,7 +128,8 @@
     BotItem *item =_listItem.BotItemListArray[indexPath.row];
     if(item.name.length)
     {
-        MALog(@"%@",item.name);
+        SEBotEditorController *vc = [[SEBotEditorController alloc] initWithBotName:item.name];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 
     

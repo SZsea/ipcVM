@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		1406A1EA1FF5EE6800B632D6 /* SEMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1406A1E91FF5EE6800B632D6 /* SEMenuController.m */; };
 		140AF5BE1FFF715E00E3C3BC /* SECustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 140AF5BD1FFF715E00E3C3BC /* SECustomView.m */; };
+		14335D5420298E760030DC6D /* SEBotEditorDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 14335D5320298E760030DC6D /* SEBotEditorDataProvider.m */; };
+		14335D5720299ED80030DC6D /* BotDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14335D5620299ED80030DC6D /* BotDetailItem.m */; };
+		14335D5A2029B35D0030DC6D /* BotConfigItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14335D592029B35D0030DC6D /* BotConfigItem.m */; };
+		14335D5D2029B43D0030DC6D /* CardFarmerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14335D5C2029B43D0030DC6D /* CardFarmerItem.m */; };
+		14335D612029B7C30030DC6D /* GameFarmItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14335D602029B7C30030DC6D /* GameFarmItem.m */; };
 		143669291FFB2AAC006038AE /* SEMenuDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 143669281FFB2AAC006038AE /* SEMenuDataProvider.m */; };
 		1436692C1FFB5A6D006038AE /* BotListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1436692B1FFB5A6D006038AE /* BotListItem.m */; };
 		143669301FFB8C6A006038AE /* NSDictionary+MAExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1436692F1FFB6340006038AE /* NSDictionary+MAExtension.m */; };
@@ -111,6 +116,16 @@
 		1406A1E91FF5EE6800B632D6 /* SEMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEMenuController.m; sourceTree = "<group>"; };
 		140AF5BC1FFF715E00E3C3BC /* SECustomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SECustomView.h; sourceTree = "<group>"; };
 		140AF5BD1FFF715E00E3C3BC /* SECustomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SECustomView.m; sourceTree = "<group>"; };
+		14335D5220298E760030DC6D /* SEBotEditorDataProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEBotEditorDataProvider.h; sourceTree = "<group>"; };
+		14335D5320298E760030DC6D /* SEBotEditorDataProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEBotEditorDataProvider.m; sourceTree = "<group>"; };
+		14335D5520299ED80030DC6D /* BotDetailItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BotDetailItem.h; sourceTree = "<group>"; };
+		14335D5620299ED80030DC6D /* BotDetailItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BotDetailItem.m; sourceTree = "<group>"; };
+		14335D582029B35D0030DC6D /* BotConfigItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BotConfigItem.h; sourceTree = "<group>"; };
+		14335D592029B35D0030DC6D /* BotConfigItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BotConfigItem.m; sourceTree = "<group>"; };
+		14335D5B2029B43D0030DC6D /* CardFarmerItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardFarmerItem.h; sourceTree = "<group>"; };
+		14335D5C2029B43D0030DC6D /* CardFarmerItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardFarmerItem.m; sourceTree = "<group>"; };
+		14335D5F2029B7C30030DC6D /* GameFarmItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameFarmItem.h; sourceTree = "<group>"; };
+		14335D602029B7C30030DC6D /* GameFarmItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameFarmItem.m; sourceTree = "<group>"; };
 		143669271FFB2AAC006038AE /* SEMenuDataProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEMenuDataProvider.h; sourceTree = "<group>"; };
 		143669281FFB2AAC006038AE /* SEMenuDataProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEMenuDataProvider.m; sourceTree = "<group>"; };
 		1436692A1FFB5A6D006038AE /* BotListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BotListItem.h; sourceTree = "<group>"; };
@@ -334,6 +349,21 @@
 				140AF5BD1FFF715E00E3C3BC /* SECustomView.m */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		14335D5E2029B4440030DC6D /* BotConfig */ = {
+			isa = PBXGroup;
+			children = (
+				14335D5520299ED80030DC6D /* BotDetailItem.h */,
+				14335D5620299ED80030DC6D /* BotDetailItem.m */,
+				14335D582029B35D0030DC6D /* BotConfigItem.h */,
+				14335D592029B35D0030DC6D /* BotConfigItem.m */,
+				14335D5B2029B43D0030DC6D /* CardFarmerItem.h */,
+				14335D5C2029B43D0030DC6D /* CardFarmerItem.m */,
+				14335D5F2029B7C30030DC6D /* GameFarmItem.h */,
+				14335D602029B7C30030DC6D /* GameFarmItem.m */,
+			);
+			path = BotConfig;
 			sourceTree = "<group>";
 		};
 		1436692D1FFB6340006038AE /* NSDictionary+Extension */ = {
@@ -651,6 +681,8 @@
 				14C922D91FFCD761008D7D87 /* SEItemMangerDataProvider.m */,
 				149E1BD6200F475C00B86593 /* SEOperationItemDataProvider.h */,
 				149E1BD7200F475C00B86593 /* SEOperationItemDataProvider.m */,
+				14335D5220298E760030DC6D /* SEBotEditorDataProvider.h */,
+				14335D5320298E760030DC6D /* SEBotEditorDataProvider.m */,
 			);
 			path = DataProvider;
 			sourceTree = "<group>";
@@ -658,6 +690,7 @@
 		14D4C9A21FF4DCD0001BC72C /* Item */ = {
 			isa = PBXGroup;
 			children = (
+				14335D5E2029B4440030DC6D /* BotConfig */,
 				14D4C9A31FF4DCF3001BC72C /* ItemBase.h */,
 				14D4C9A41FF4DCF3001BC72C /* ItemBase.m */,
 				1436692A1FFB5A6D006038AE /* BotListItem.h */,
@@ -868,6 +901,7 @@
 				14C922C21FFCC4D0008D7D87 /* MJRefreshAutoFooter.m in Sources */,
 				14C922C31FFCC4D0008D7D87 /* MJRefreshBackFooter.m in Sources */,
 				14C922C41FFCC4D0008D7D87 /* MJRefreshComponent.m in Sources */,
+				14335D612029B7C30030DC6D /* GameFarmItem.m in Sources */,
 				14C922C51FFCC4D0008D7D87 /* MJRefreshFooter.m in Sources */,
 				14C922C61FFCC4D0008D7D87 /* MJRefreshHeader.m in Sources */,
 				14C922C71FFCC4D0008D7D87 /* MJRefreshAutoGifFooter.m in Sources */,
@@ -877,6 +911,7 @@
 				14C922CB1FFCC4D0008D7D87 /* MJRefreshBackNormalFooter.m in Sources */,
 				14C922CC1FFCC4D0008D7D87 /* MJRefreshBackStateFooter.m in Sources */,
 				14C922CD1FFCC4D0008D7D87 /* MJRefreshGifHeader.m in Sources */,
+				14335D5720299ED80030DC6D /* BotDetailItem.m in Sources */,
 				14C922CE1FFCC4D0008D7D87 /* MJRefreshNormalHeader.m in Sources */,
 				14C922CF1FFCC4D0008D7D87 /* MJRefreshStateHeader.m in Sources */,
 				14C922D01FFCC4D0008D7D87 /* MJRefreshConst.m in Sources */,
@@ -897,6 +932,7 @@
 				1451D9CF1FF337E300A6F511 /* main.m in Sources */,
 				14C922DA1FFCD761008D7D87 /* SEItemMangerDataProvider.m in Sources */,
 				14D4C9C61FF4E241001BC72C /* DatabaseQueue.m in Sources */,
+				14335D5420298E760030DC6D /* SEBotEditorDataProvider.m in Sources */,
 				14D4C9C11FF4E1CE001BC72C /* FMDatabasePool.m in Sources */,
 				14D4C9C21FF4E1CE001BC72C /* FMDatabaseQueue.m in Sources */,
 				14D4C9901FF4D0F8001BC72C /* UIProgressView+AFNetworking.m in Sources */,
@@ -920,8 +956,10 @@
 				14D4C9831FF4D0F8001BC72C /* AFNetworkReachabilityManager.m in Sources */,
 				14D4C9841FF4D0F8001BC72C /* AFSecurityPolicy.m in Sources */,
 				14D4C9821FF4D0F8001BC72C /* AFHTTPSessionManager.m in Sources */,
+				14335D5A2029B35D0030DC6D /* BotConfigItem.m in Sources */,
 				14D4C9A91FF4E0CB001BC72C /* SessionDAO.m in Sources */,
 				14D4C9C01FF4E1CE001BC72C /* FMDatabaseAdditions.m in Sources */,
+				14335D5D2029B43D0030DC6D /* CardFarmerItem.m in Sources */,
 				1451DA031FF3497300A6F511 /* UIView+Extension.m in Sources */,
 				14D4C99E1FF4D5E0001BC72C /* DataProviderBase.m in Sources */,
 				14D4C9CA1FF4E4F7001BC72C /* Session.m in Sources */,
