@@ -10,4 +10,14 @@
 #import "GameFarmItem.h"
 @implementation CardFarmerItem
 
+
+-(instancetype)init
+{
+    if(self = [super init])
+    {
+        _gameToFarm = [NSMutableArray new];
+        _currentGamesFarming = [NSMutableArray new];
+    }
+    return self;
+}
 @end

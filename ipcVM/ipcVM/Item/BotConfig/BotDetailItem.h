@@ -24,5 +24,9 @@
 
 @property(nonatomic,strong)BotConfigItem  *botConfigItem;
 
+@property(nonatomic,assign)BOOL       botConfigBOOL;
+
 @property(nonatomic,strong)CardFarmerItem *cardFarmerItem;
+
+@property(nonatomic,assign)BOOL      cardFarmerBOOL;
 @end

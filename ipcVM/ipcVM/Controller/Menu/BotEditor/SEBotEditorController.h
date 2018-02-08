@@ -7,7 +7,7 @@
 //
 
 #import "SEBaseViewController.h"
-
+@class BotDetailItem;
 @interface SEBotEditorController : SEBaseViewController
 
 

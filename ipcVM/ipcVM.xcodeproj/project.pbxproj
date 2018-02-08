@@ -25,6 +25,7 @@
 		1451D9E41FF337E300A6F511 /* ipcVMUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451D9E31FF337E300A6F511 /* ipcVMUITests.m */; };
 		1451D9F31FF33D3600A6F511 /* SELoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451D9F21FF33D3600A6F511 /* SELoginController.m */; };
 		1451DA031FF3497300A6F511 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451D9FD1FF3497300A6F511 /* UIView+Extension.m */; };
+		146243AE202C2AD400A69065 /* SEBotEditorViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 146243AD202C2AD400A69065 /* SEBotEditorViewCell.m */; };
 		149E1BD2200F38B000B86593 /* SEOperationItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149E1BD1200F38B000B86593 /* SEOperationItemController.m */; };
 		149E1BD5200F41CF00B86593 /* SEOperationItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 149E1BD4200F41CF00B86593 /* SEOperationItemCell.m */; };
 		149E1BD8200F475C00B86593 /* SEOperationItemDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 149E1BD7200F475C00B86593 /* SEOperationItemDataProvider.m */; };
@@ -151,6 +152,8 @@
 		1451D9FC1FF3497300A6F511 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		1451D9FD1FF3497300A6F511 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		1451DA081FF34E7100A6F511 /* SEPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEPrefixHeader.pch; sourceTree = "<group>"; };
+		146243AC202C2AD400A69065 /* SEBotEditorViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEBotEditorViewCell.h; sourceTree = "<group>"; };
+		146243AD202C2AD400A69065 /* SEBotEditorViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEBotEditorViewCell.m; sourceTree = "<group>"; };
 		149E1BD0200F38B000B86593 /* SEOperationItemController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEOperationItemController.h; sourceTree = "<group>"; };
 		149E1BD1200F38B000B86593 /* SEOperationItemController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEOperationItemController.m; sourceTree = "<group>"; };
 		149E1BD3200F41CF00B86593 /* SEOperationItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEOperationItemCell.h; sourceTree = "<group>"; };
@@ -493,6 +496,8 @@
 				14F3ABD31FFDD33800E89C82 /* SEOperationTableViewCell.m */,
 				149E1BD3200F41CF00B86593 /* SEOperationItemCell.h */,
 				149E1BD4200F41CF00B86593 /* SEOperationItemCell.m */,
+				146243AC202C2AD400A69065 /* SEBotEditorViewCell.h */,
+				146243AD202C2AD400A69065 /* SEBotEditorViewCell.m */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -934,6 +939,7 @@
 				14D4C9C61FF4E241001BC72C /* DatabaseQueue.m in Sources */,
 				14335D5420298E760030DC6D /* SEBotEditorDataProvider.m in Sources */,
 				14D4C9C11FF4E1CE001BC72C /* FMDatabasePool.m in Sources */,
+				146243AE202C2AD400A69065 /* SEBotEditorViewCell.m in Sources */,
 				14D4C9C21FF4E1CE001BC72C /* FMDatabaseQueue.m in Sources */,
 				14D4C9901FF4D0F8001BC72C /* UIProgressView+AFNetworking.m in Sources */,
 				14C922921FFC817F008D7D87 /* SEMenuTableViewCell.m in Sources */,

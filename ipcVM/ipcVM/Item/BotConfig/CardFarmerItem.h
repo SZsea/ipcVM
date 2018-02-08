@@ -18,4 +18,7 @@
 
 @property(nonatomic,strong)NSMutableArray<GameFarmItem *>   *currentGamesFarming;
 
+
+-(instancetype)init;
+
 @end

@@ -8,11 +8,18 @@
 
 #import "SEBotEditorController.h"
 #import "SEBotEditorDataProvider.h"
+#import "BotDetailItem.h"
+#import "SEBotEditorViewCell.h"
+#import "BotDetailItem.h"
 
 @interface SEBotEditorController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,copy)NSString        *botName;
 
 @property (nonatomic,strong)UITableView  *tableView;
+
+@property(nonatomic,strong)BotDetailItem  *botDetail;
+
+@property(nonatomic,strong)NSMutableArray  *botArray;
 @end
 
 @implementation SEBotEditorController
@@ -22,6 +29,7 @@
     if(self = [super init])
     {
         _botName = [name copy];
+        self.view.backgroundColor = [UIColor  blackColor];
     }
     return self;
 }
@@ -64,9 +72,12 @@
 
 - (void)handleReceiveListData:(id)item
 {
+    _botDetail = [[BotDetailItem alloc] init];
+    [_botDetail analyzeNetWorkData:item];
+    
 //    _listItem = [[BotListItem alloc] init];
 //    [_listItem analyzeNetWorkData:item];
-//    //    [self.tableView reloadData];
+//    [self.tableView reloadData];
     
     if (_tableView.mj_footer) {
         [_tableView.mj_footer setHidden:false];
@@ -85,16 +96,71 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return  100.f;
+    return  BOTEDITORITEMHIGHT;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return  20;
+    if(section == 4)
+    {
+        if(_botDetail.botConfigBOOL)
+        {
+           return 4;
+        }
+    }
+    if(section == 5)
+    {
+        if(_botDetail.cardFarmerBOOL)
+        {
+            return 4;
+        }
+    }
+    
+    return  1;
+    
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+ 
+    return 6;
+    
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell  = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BotEditor"];
+    SEBotEditorViewCell *cell  = [[SEBotEditorViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BotEditor"];
+    cell.botDetailItem = _botDetail;
+    switch (indexPath.section) {
+        case 0:
+            cell.style =  SEBotEditorViewCellBotName;
+            break;
+        case 1:
+            cell.style = SEBotEditorViewCellSteamId;
+            break;
+        case 2:
+            cell.style = SEBotEditorViewCellKeepRunning;
+            break;
+        default:
+            break;
+    }
+    
+    
 
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 4)
+    {
+        _botDetail.botConfigBOOL = !_botDetail.botConfigBOOL;
+    }
+    if(indexPath.section == 5)
+    {
+        _botDetail.cardFarmerBOOL = !_botDetail.cardFarmerBOOL;
+    }
+    [_tableView reloadData];
+}
+
 @end
