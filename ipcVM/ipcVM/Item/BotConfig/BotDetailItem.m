@@ -80,7 +80,13 @@
          }
          
      }
-    
+    GameFarmItem *farmItem = [[GameFarmItem alloc] init];
+    farmItem.hoursPlayed = @"11111";
+    farmItem.appID = @"11111";
+    farmItem.gameName = @"11111";
+    farmItem.cardsRemaining = @"11111";
+    [_cardFarmerItem.gameToFarm addObject:farmItem];
+    [_cardFarmerItem.currentGamesFarming addObject:farmItem];
 //    NSArray *resultArr = [data componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
     //    MALog(@"%@", resultArr);
 

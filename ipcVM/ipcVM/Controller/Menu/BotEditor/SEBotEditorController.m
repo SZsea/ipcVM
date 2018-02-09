@@ -8,9 +8,10 @@
 
 #import "SEBotEditorController.h"
 #import "SEBotEditorDataProvider.h"
-#import "BotDetailItem.h"
 #import "SEBotEditorViewCell.h"
 #import "BotDetailItem.h"
+#import "CardFarmerItem.h"
+#import "GameFarmItem.h"
 
 @interface SEBotEditorController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,copy)NSString        *botName;
@@ -95,7 +96,14 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if(indexPath.section == 5)
+    {
+        if((indexPath.row > 3 && indexPath.row < 4 + _botDetail.cardFarmerItem.currentGamesFarming.count) || (indexPath.row > 4 + _botDetail.cardFarmerItem.currentGamesFarming.count))
+        {
+            return BOTEDITORITEMHIGHT * 4;
+        }
+    }
+
     return  BOTEDITORITEMHIGHT;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -104,14 +112,14 @@
     {
         if(_botDetail.botConfigBOOL)
         {
-           return 4;
+           return 1;
         }
     }
     if(section == 5)
     {
         if(_botDetail.cardFarmerBOOL)
         {
-            return 4;
+            return 5 + _botDetail.cardFarmerItem.currentGamesFarming.count + _botDetail.cardFarmerItem.gameToFarm.count ;
         }
     }
     
@@ -131,6 +139,7 @@
 {
     SEBotEditorViewCell *cell  = [[SEBotEditorViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BotEditor"];
     cell.botDetailItem = _botDetail;
+
     switch (indexPath.section) {
         case 0:
             cell.style =  SEBotEditorViewCellBotName;
@@ -140,6 +149,61 @@
             break;
         case 2:
             cell.style = SEBotEditorViewCellKeepRunning;
+            break;
+        case 3:
+            cell.style = SEBotEditorViewCellAccoutFlags;
+            break;
+        case 4:
+        {
+            switch (indexPath.row) {
+                case 0:
+                    cell.style = SEBotEditorViewCellBotConfig;
+                    break;
+
+                    
+                default:
+                    break;
+            }
+        }
+            
+            break;
+        case 5:
+        {
+            switch (indexPath.row) {
+                case 0:
+                    cell.style = SEBotEditorViewCellCardFarmer;
+                    break;
+                case 1:
+                    cell.style = SEBotEditorViewCellCardFarmerPaused;
+                    break;
+                case 2:
+                    cell.style = SEBotEditorViewCellCardFarmerTimeRemaining;
+                    break;
+                case 3:
+                    cell.style = SEBotEditorViewCellCardFarmerGameToFarm;
+                    break;
+                    
+                default:
+                    if(indexPath.row > 3 &&indexPath.row < 4 + _botDetail.cardFarmerItem.currentGamesFarming.count)
+                    {
+                        cell.style = SEBotEditorViewCellCardFarmerGameToFarmItem;
+                        GameFarmItem *item = _botDetail.cardFarmerItem.currentGamesFarming[ indexPath.row - 4];
+                        cell.gameFarmItem = item;
+                    }
+                    if(indexPath.row == 4 + _botDetail.cardFarmerItem.currentGamesFarming.count)
+                    {
+                        cell.style = SEBotEditorViewCellCardFarmercurrentGamesFarming;
+                    }
+                    if(indexPath.row > 4 + _botDetail.cardFarmerItem.currentGamesFarming.count)
+                    {
+                        cell.style = SEBotEditorViewCellCardFarmercurrentGamesFarmingItem;
+                        GameFarmItem *item = _botDetail.cardFarmerItem.currentGamesFarming[indexPath.row - 4 - _botDetail.cardFarmerItem.currentGamesFarming.count];
+                        cell.gameFarmItem = item;
+                    }
+                    break;
+            }
+        }
+            
             break;
         default:
             break;
@@ -152,15 +216,17 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 4)
+    if(indexPath.section == 4 && indexPath.row == 0)
     {
         _botDetail.botConfigBOOL = !_botDetail.botConfigBOOL;
+        [_tableView reloadData];
     }
-    if(indexPath.section == 5)
+    if(indexPath.section == 5 && indexPath.row == 0)
     {
         _botDetail.cardFarmerBOOL = !_botDetail.cardFarmerBOOL;
+        [_tableView reloadData];
     }
-    [_tableView reloadData];
+    
 }
 
 @end

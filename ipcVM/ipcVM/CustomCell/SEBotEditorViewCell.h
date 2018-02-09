@@ -9,7 +9,7 @@
 
 #define BOTEDITORITEMHIGHT  55.f
 @class BotDetailItem;
-
+@class GameFarmItem;
 typedef NS_ENUM(NSInteger, SEBotEditorViewCellStyle) {
     SEBotEditorViewCellBotName,
     SEBotEditorViewCellSteamId,
@@ -21,7 +21,9 @@ typedef NS_ENUM(NSInteger, SEBotEditorViewCellStyle) {
     SEBotEditorViewCellCardFarmerPaused,
     SEBotEditorViewCellCardFarmerTimeRemaining,
     SEBotEditorViewCellCardFarmerGameToFarm,
+    SEBotEditorViewCellCardFarmerGameToFarmItem,
     SEBotEditorViewCellCardFarmercurrentGamesFarming,
+    SEBotEditorViewCellCardFarmercurrentGamesFarmingItem,
  
 };
 @interface SEBotEditorViewCell : UITableViewCell
@@ -29,6 +31,8 @@ typedef NS_ENUM(NSInteger, SEBotEditorViewCellStyle) {
 
 @property(nonatomic,strong)BotDetailItem   *botDetailItem;
 
+
+@property(nonatomic,strong)GameFarmItem   *gameFarmItem;
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 
 
