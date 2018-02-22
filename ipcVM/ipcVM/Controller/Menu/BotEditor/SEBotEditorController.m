@@ -100,7 +100,7 @@
     {
         if((indexPath.row > 3 && indexPath.row < 4 + _botDetail.cardFarmerItem.currentGamesFarming.count) || (indexPath.row > 4 + _botDetail.cardFarmerItem.currentGamesFarming.count))
         {
-            return BOTEDITORITEMHIGHT * 4;
+            return BOTEDITORITEMHIGHTSPEC;
         }
     }
 
@@ -184,21 +184,32 @@
                     break;
                     
                 default:
-                    if(indexPath.row > 3 &&indexPath.row < 4 + _botDetail.cardFarmerItem.currentGamesFarming.count)
+                    if(indexPath.row > 3 &&indexPath.row < 4 + _botDetail.cardFarmerItem.gameToFarm.count)
                     {
-                        cell.style = SEBotEditorViewCellCardFarmerGameToFarmItem;
-                        GameFarmItem *item = _botDetail.cardFarmerItem.currentGamesFarming[ indexPath.row - 4];
-                        cell.gameFarmItem = item;
+                        if(_botDetail.cardFarmerItem.gameToFarm.count)
+                        {
+                            
+                            GameFarmItem *item = _botDetail.cardFarmerItem.gameToFarm[ indexPath.row - 4];
+                            cell.gameFarmItem = item;
+                            cell.style = SEBotEditorViewCellCardFarmerGameToFarmItem;
+                        }
+
                     }
-                    if(indexPath.row == 4 + _botDetail.cardFarmerItem.currentGamesFarming.count)
+                    if(indexPath.row == 4 + _botDetail.cardFarmerItem.gameToFarm.count)
                     {
                         cell.style = SEBotEditorViewCellCardFarmercurrentGamesFarming;
                     }
-                    if(indexPath.row > 4 + _botDetail.cardFarmerItem.currentGamesFarming.count)
+                    if(indexPath.row > 4 + _botDetail.cardFarmerItem.gameToFarm.count)
                     {
-                        cell.style = SEBotEditorViewCellCardFarmercurrentGamesFarmingItem;
-                        GameFarmItem *item = _botDetail.cardFarmerItem.currentGamesFarming[indexPath.row - 4 - _botDetail.cardFarmerItem.currentGamesFarming.count];
-                        cell.gameFarmItem = item;
+                        if(_botDetail.cardFarmerItem.currentGamesFarming.count)
+                        {
+
+                            GameFarmItem *item = _botDetail.cardFarmerItem.currentGamesFarming[indexPath.row - 5 - _botDetail.cardFarmerItem.gameToFarm.count];
+                            cell.gameFarmItem = item;
+                            cell.style = SEBotEditorViewCellCardFarmercurrentGamesFarmingItem;
+
+                        }
+
                     }
                     break;
             }

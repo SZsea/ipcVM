@@ -12,7 +12,7 @@
 #import "GameFarmItem.h"
 
 #define RIGHTLABELX  _leftLabel.x + _leftLabel.width + 60.f
-
+#define RIGHTLABELXMAX  SCREEN_WIDTH/2;
 @interface SEBotEditorViewCell()
 
 @property(nonatomic,strong)UIView *line;
@@ -77,6 +77,7 @@
 {
     if(!_rightLabelB)
     {
+        
         _rightLabelB = [[UILabel alloc] init];
         _rightLabelB.font = MANUIFontWithSize(15.f);
         _rightLabelB.textColor  = [UIColor blackColor];
@@ -133,6 +134,8 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self  = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        
+        
         [self setUpBuildUI];
         //        self.backgroundColor = [UIColor redColor];
     }
@@ -310,45 +313,45 @@
             _leftLabel.text = @"appID:";
             [_leftLabel sizeToFit];
             _leftLabel.centerY = BOTEDITORITEMHIGHT/8;
-            _leftLabel.x = 15.f;
+            _leftLabel.x = 30.f;
             
             _rightLabel.text = _gameFarmItem.appID;
             [_rightLabel sizeToFit];
             _rightLabel.centerY = _leftLabel.centerY;
-            _rightLabel.x = RIGHTLABELX;
+            _rightLabel.x = RIGHTLABELXMAX;
             
             _leftLabelA.text = @"GameName:";
             [_leftLabelA sizeToFit];
-            _leftLabelA.centerY = BOTEDITORITEMHIGHT/8 * 2;
-            _leftLabelA.x = 15.f;
+            _leftLabelA.y = _leftLabel.y + _leftLabel.height + 5.f;
+            _leftLabelA.x = _leftLabel.x;
             
             _rightLabelA.text = _gameFarmItem.gameName;
             [_rightLabelA sizeToFit];
-            _rightLabelA.centerY = _leftLabel.centerY;
-            _rightLabelA.x = RIGHTLABELX;
+            _rightLabelA.centerY = _leftLabelA.centerY;
+            _rightLabelA.x = RIGHTLABELXMAX;
             
             _leftLabelB.text = @"HoursPlayed:";
             [_leftLabelB sizeToFit];
-            _leftLabelB.centerY = BOTEDITORITEMHIGHT/8 * 4;
-            _leftLabelB.x = 15.f;
+            _leftLabelB.y = _leftLabelA.y + _leftLabelA.height + 5.f;
+            _leftLabelB.x = _leftLabelA.x;
             
             _rightLabelB.text = _gameFarmItem.hoursPlayed;
             [_rightLabelB sizeToFit];
-            _rightLabelB.centerY = _leftLabel.centerY;
-            _rightLabelB.x = RIGHTLABELX;
+            _rightLabelB.centerY = _leftLabelB.centerY;
+            _rightLabelB.x = RIGHTLABELXMAX;
             
             _leftLabelC.text = @"CardsRemaining:";
             [_leftLabelC sizeToFit];
-            _leftLabelC.centerY = BOTEDITORITEMHIGHT/8 * 6;
-            _leftLabelC.x = 15.f;
+            _leftLabelC.y= _leftLabelB.y + _leftLabelB.height + 5.f;
+            _leftLabelC.x = _leftLabelB.x;
             
             _rightLabelC.text = _gameFarmItem.cardsRemaining;
             [_rightLabelC sizeToFit];
-            _rightLabelC.centerY = _leftLabel.centerY;
-            _rightLabelC.x = RIGHTLABELX;
+            _rightLabelC.centerY = _leftLabelC.centerY;
+            _rightLabelC.x = RIGHTLABELXMAX;
             
             _line.x = 15.f;
-            _line.y = BOTEDITORITEMHIGHT * 4 - 1.f;
+            _line.y = BOTEDITORITEMHIGHTSPEC - 1.f;
             _line.x = 30.f;
             break;
             

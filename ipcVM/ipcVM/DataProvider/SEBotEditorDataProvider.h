@@ -13,4 +13,8 @@
 
 -(void)loadDataWith:(NSString *)botName WithSuccess:(void (^)())success failure:(void (^)())failure;
 
+
+-(void)addBotWithBotbody:(NSDictionary *)botjson WithName:(NSString *)botName WithSuccess:(void (^)())success failure:(void (^)())failure;
+
+
 @end

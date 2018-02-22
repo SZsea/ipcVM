@@ -8,6 +8,7 @@
 
 
 #define BOTEDITORITEMHIGHT  55.f
+#define BOTEDITORITEMHIGHTSPEC BOTEDITORITEMHIGHT * 2.f
 @class BotDetailItem;
 @class GameFarmItem;
 typedef NS_ENUM(NSInteger, SEBotEditorViewCellStyle) {

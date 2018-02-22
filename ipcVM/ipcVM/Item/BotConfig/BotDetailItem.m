@@ -36,11 +36,7 @@
              _botConfigItem =  [[BotConfigItem alloc] init];
              
              
-             
-             
-             
-             
-             
+   
          }
          NSDictionary *cardsFarmer = [dic purifyObjectForKey:@"CardsFarmer"];
          if(MA_IsKindOfNSDictionaryClass(cardsFarmer))
@@ -80,13 +76,20 @@
          }
          
      }
-    GameFarmItem *farmItem = [[GameFarmItem alloc] init];
-    farmItem.hoursPlayed = @"11111";
-    farmItem.appID = @"11111";
-    farmItem.gameName = @"11111";
-    farmItem.cardsRemaining = @"11111";
-    [_cardFarmerItem.gameToFarm addObject:farmItem];
-    [_cardFarmerItem.currentGamesFarming addObject:farmItem];
+//    GameFarmItem *farmItem = [[GameFarmItem alloc] init];
+//    farmItem.hoursPlayed = @"11111";
+//    farmItem.appID = @"11111";
+//    farmItem.gameName = @"11111";
+//    farmItem.cardsRemaining = @"11111";
+//    [_cardFarmerItem.gameToFarm addObject:farmItem];
+//
+//
+//    GameFarmItem *farmItemd = [[GameFarmItem alloc] init];
+//    farmItemd.hoursPlayed = @"222";
+//    farmItemd.appID = @"222";
+//    farmItemd.gameName = @"222";
+//    farmItemd.cardsRemaining = @"2222";
+//    [_cardFarmerItem.currentGamesFarming addObject:farmItemd];
 //    NSArray *resultArr = [data componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
     //    MALog(@"%@", resultArr);
 

@@ -14,6 +14,9 @@
 		14335D5A2029B35D0030DC6D /* BotConfigItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14335D592029B35D0030DC6D /* BotConfigItem.m */; };
 		14335D5D2029B43D0030DC6D /* CardFarmerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14335D5C2029B43D0030DC6D /* CardFarmerItem.m */; };
 		14335D612029B7C30030DC6D /* GameFarmItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14335D602029B7C30030DC6D /* GameFarmItem.m */; };
+		14351833203EAA31006B16F9 /* SEBotAddController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14351832203EAA31006B16F9 /* SEBotAddController.m */; };
+		14351836203EAFF0006B16F9 /* SEBotAddViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14351835203EAFF0006B16F9 /* SEBotAddViewCell.m */; };
+		14351839203ECF24006B16F9 /* SEBotConfigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14351838203ECF24006B16F9 /* SEBotConfigView.m */; };
 		143669291FFB2AAC006038AE /* SEMenuDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 143669281FFB2AAC006038AE /* SEMenuDataProvider.m */; };
 		1436692C1FFB5A6D006038AE /* BotListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1436692B1FFB5A6D006038AE /* BotListItem.m */; };
 		143669301FFB8C6A006038AE /* NSDictionary+MAExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1436692F1FFB6340006038AE /* NSDictionary+MAExtension.m */; };
@@ -127,6 +130,12 @@
 		14335D5C2029B43D0030DC6D /* CardFarmerItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardFarmerItem.m; sourceTree = "<group>"; };
 		14335D5F2029B7C30030DC6D /* GameFarmItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameFarmItem.h; sourceTree = "<group>"; };
 		14335D602029B7C30030DC6D /* GameFarmItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameFarmItem.m; sourceTree = "<group>"; };
+		14351831203EAA31006B16F9 /* SEBotAddController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEBotAddController.h; sourceTree = "<group>"; };
+		14351832203EAA31006B16F9 /* SEBotAddController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEBotAddController.m; sourceTree = "<group>"; };
+		14351834203EAFF0006B16F9 /* SEBotAddViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEBotAddViewCell.h; sourceTree = "<group>"; };
+		14351835203EAFF0006B16F9 /* SEBotAddViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEBotAddViewCell.m; sourceTree = "<group>"; };
+		14351837203ECF24006B16F9 /* SEBotConfigView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEBotConfigView.h; sourceTree = "<group>"; };
+		14351838203ECF24006B16F9 /* SEBotConfigView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEBotConfigView.m; sourceTree = "<group>"; };
 		143669271FFB2AAC006038AE /* SEMenuDataProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEMenuDataProvider.h; sourceTree = "<group>"; };
 		143669281FFB2AAC006038AE /* SEMenuDataProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEMenuDataProvider.m; sourceTree = "<group>"; };
 		1436692A1FFB5A6D006038AE /* BotListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BotListItem.h; sourceTree = "<group>"; };
@@ -350,6 +359,8 @@
 			children = (
 				140AF5BC1FFF715E00E3C3BC /* SECustomView.h */,
 				140AF5BD1FFF715E00E3C3BC /* SECustomView.m */,
+				14351837203ECF24006B16F9 /* SEBotConfigView.h */,
+				14351838203ECF24006B16F9 /* SEBotConfigView.m */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -498,6 +509,8 @@
 				149E1BD4200F41CF00B86593 /* SEOperationItemCell.m */,
 				146243AC202C2AD400A69065 /* SEBotEditorViewCell.h */,
 				146243AD202C2AD400A69065 /* SEBotEditorViewCell.m */,
+				14351834203EAFF0006B16F9 /* SEBotAddViewCell.h */,
+				14351835203EAFF0006B16F9 /* SEBotAddViewCell.m */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -762,6 +775,8 @@
 			children = (
 				14FB0A82202848BC00DFCCD3 /* SEBotEditorController.h */,
 				14FB0A83202848BC00DFCCD3 /* SEBotEditorController.m */,
+				14351831203EAA31006B16F9 /* SEBotAddController.h */,
+				14351832203EAA31006B16F9 /* SEBotAddController.m */,
 			);
 			path = BotEditor;
 			sourceTree = "<group>";
@@ -921,6 +936,7 @@
 				14C922CF1FFCC4D0008D7D87 /* MJRefreshStateHeader.m in Sources */,
 				14C922D01FFCC4D0008D7D87 /* MJRefreshConst.m in Sources */,
 				14C922D11FFCC4D0008D7D87 /* NSBundle+MJRefresh.m in Sources */,
+				14351839203ECF24006B16F9 /* SEBotConfigView.m in Sources */,
 				14B7B0332003773300A262AE /* SVProgressHUD.m in Sources */,
 				14C922D21FFCC4D0008D7D87 /* UIScrollView+MJExtension.m in Sources */,
 				149E1BD2200F38B000B86593 /* SEOperationItemController.m in Sources */,
@@ -930,6 +946,7 @@
 				14C922D41FFCC4D0008D7D87 /* UIView+MJExtension.m in Sources */,
 				143669301FFB8C6A006038AE /* NSDictionary+MAExtension.m in Sources */,
 				1436692C1FFB5A6D006038AE /* BotListItem.m in Sources */,
+				14351833203EAA31006B16F9 /* SEBotAddController.m in Sources */,
 				143669331FFB9026006038AE /* BotItem.m in Sources */,
 				14D4C9851FF4D0F8001BC72C /* AFURLRequestSerialization.m in Sources */,
 				14D4C98F1FF4D0F8001BC72C /* UIImageView+AFNetworking.m in Sources */,
@@ -979,6 +996,7 @@
 				14F3ABD11FFDC5DE00E89C82 /* SEOperationMenuController.m in Sources */,
 				14D4C9981FF4D3F9001BC72C /* SEBaseViewController.m in Sources */,
 				14D4C9A51FF4DCF3001BC72C /* ItemBase.m in Sources */,
+				14351836203EAFF0006B16F9 /* SEBotAddViewCell.m in Sources */,
 				149E1BD8200F475C00B86593 /* SEOperationItemDataProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
