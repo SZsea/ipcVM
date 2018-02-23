@@ -29,6 +29,7 @@
     if(self = [super init])
     {
         self.view.backgroundColor = [UIColor  blackColor];
+        _botItem = [[BotDetailItem alloc] init];
 
     }
     return self;
@@ -69,7 +70,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-    return  1;
+    return  2;
     
 }
 
@@ -83,7 +84,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SEBotAddViewCell *cell  = [[SEBotAddViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BotAdd"];
+    SEBotAddViewCell *cell  = [[SEBotAddViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BotAdd" withbot:_botItem];
+    switch (indexPath.row) {
+        case 0:
+            cell.style = SEBotAddViewCellBotName;
+            break;
+        case 1:
+            cell.style = SEBotAddViewCellBotConfig;
+            break;
+            
+        default:
+            break;
+    }
     return cell;
 }
 @end

@@ -7,17 +7,31 @@
 //
 
 #import "SEBotAddViewCell.h"
+#import "SEBotConfigView.h"
+#import "BotDetailItem.h"
 @interface SEBotAddViewCell()
 
 @property(nonatomic,strong)UIView *line;
 
+@property(nonatomic,strong)SEBotConfigView  *configView;
+
+@property(nonatomic,strong)BotDetailItem  *botConfigItem;
 @end
 @implementation SEBotAddViewCell
-
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+- (SEBotConfigView *)configView
+{
+    if(!_configView)
+    {
+        _configView = [[SEBotConfigView alloc] initWithBot:_botConfigItem.botConfigItem];
+        _configView.hidden = YES;
+    }
+    return _configView;
+    
+}
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withbot:(BotDetailItem *)botConfigItem{
     if (self  = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
-        
+        _botConfigItem = botConfigItem;
         [self setUpBuildUI];
         //        self.backgroundColor = [UIColor redColor];
     }
@@ -30,7 +44,30 @@
     _line= [[UIView alloc] initWithFrame:CGRectMake(0, BOTADDITEMHIGHT -1.f, SCREEN_WIDTH, 0.5f)];
     _line.backgroundColor = [UIColor blackColor];
     [self.contentView addSubview:_line];
+    [self.contentView addSubview:self.configView];
 
     
+}
+
+-(void)setStyle:(SEBotAddViewCellStyle)style
+{
+    _style = style;
+    [self p_setUpData];
+}
+
+-(void)p_setUpData
+{
+    switch (_style) {
+        case SEBotAddViewCellBotName:
+            _configView.hidden = YES;
+            _line.hidden = NO;
+            break;
+        case SEBotAddViewCellBotConfig:
+            _configView.hidden = NO;
+            _line.hidden = YES;
+            break;
+        default:
+            break;
+    }
 }
 @end

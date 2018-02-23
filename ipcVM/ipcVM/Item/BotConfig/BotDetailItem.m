@@ -12,7 +12,16 @@
 #import "NSDictionary+MAExtension.h"
 #import "GameFarmItem.h"
 @implementation BotDetailItem
-
+- (instancetype)init
+{
+    if(self =  [super init])
+    {
+        _botConfigItem = [[BotConfigItem alloc] init];
+    }
+    return self;
+    
+    
+}
 - (void)analyzeNetWorkData:(id)data{
     [super analyzeNetWorkData:data];
     [self searchItem:self.result];

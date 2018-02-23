@@ -6,8 +6,11 @@
 //  Copyright © 2018年 Sean. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
+@class BotConfigItem;
 @interface SEBotConfigView : UIView
+
+
+
+-(instancetype)initWithBot:(BotConfigItem *)item;
 
 @end
