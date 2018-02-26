@@ -65,6 +65,7 @@
         case SEBotAddViewCellBotConfig:
             _configView.hidden = NO;
             _line.hidden = YES;
+//            self.contentView.backgroundColor = [UIColor redColor];
             break;
         default:
             break;

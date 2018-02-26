@@ -11,6 +11,7 @@
 #import "SEBotAddViewCell.h"
 #import "BotDetailItem.h"
 #import "BotConfigItem.h"
+#import "SEBotConfigView.h"
 
 @interface SEBotAddController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -45,6 +46,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.allowsSelection = NO;
     }
     return _tableView;
 }
@@ -64,8 +66,20 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
+    switch (indexPath.row) {
+        case 0:
+            return  BOTADDITEMHIGHT;
+            break;
+        case 1:
+            return  SEBOTCONFIGVIEWHIGHT ;
+            break;
+        default:
+            return  BOTADDITEMHIGHT;
+            break;
+    }
     
-    return  BOTADDITEMHIGHT;
+    
+    
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

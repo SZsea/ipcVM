@@ -10,4 +10,6 @@
 
 @interface SEOperationItemDataProvider : SEMenuDataProvider
 
+-(void)addBotWithBotbody:(NSDictionary *)botjson WithName:(NSString *)botName WithSuccess:(void (^)())success failure:(void (^)())failure;
+
 @end

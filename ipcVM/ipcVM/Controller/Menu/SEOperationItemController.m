@@ -13,6 +13,7 @@
 #import "BotItem.h"
 #import "SEBotEditorController.h"
 #import "SEBotAddController.h"
+#import "BotConfigItem.h"
 @interface SEOperationItemController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -135,8 +136,30 @@
     if(indexPath.row == _listItem.BotItemListArray.count - 1)
     {
 //        MALog(@"231231");
-        SEBotAddController *vc = [[SEBotAddController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+//        SEBotAddController *vc = [[SEBotAddController alloc] init];
+//        [self.navigationController pushViewController:vc animated:YES];
+        NSMutableDictionary  *dic = [NSMutableDictionary new];
+        int i;
+        int propertyCount = 0;
+        objc_property_t *properties = class_copyPropertyList([BotConfigItem class], &propertyCount);
+        
+        for ( i=0; i < propertyCount; i++ ) {
+            objc_property_t property = properties[i];
+            
+            const char* char_f =property_getName(property);
+            
+            NSString *propertyName = [NSString stringWithUTF8String:char_f];
+            if([propertyName isEqualToString:@"AcceptGifts"])
+            {
+                
+            }
+            [dic setObject:@"false" forKey:propertyName];
+            
+        }
+        NSMutableDictionary  *dicD = [NSMutableDictionary new];
+        [dicD setObject:dic forKey:@"BotConfig"];
+        [dicD setObject:@"true" forKey:@"KeepSensitiveDetails"];
+        [(SEOperationItemDataProvider *)self.dataProvider addBotWithBotbody:dicD WithName:@"archi" WithSuccess:nil failure:nil];
     }
 
     

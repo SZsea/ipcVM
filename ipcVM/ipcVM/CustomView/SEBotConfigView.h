@@ -6,6 +6,8 @@
 //  Copyright © 2018年 Sean. All rights reserved.
 //
 
+#define SEBOTCONFIGVIEWHIGHT  1000.f
+
 @class BotConfigItem;
 @interface SEBotConfigView : UIView
 
