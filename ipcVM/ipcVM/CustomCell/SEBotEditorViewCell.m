@@ -172,6 +172,7 @@
 -(void)setUpData
 {
     _leftLabelA.text = _rightLabelA.text = _leftLabelB.text = _rightLabelB.text = _leftLabelC.text = _rightLabelC.text = nil;
+    _leftLabel.textColor = [UIColor blackColor];
     self.backgroundColor = [UIColor clearColor];
     _line.y = BOTEDITORITEMHIGHT -1.f;
     _line.x = 0.f;
@@ -353,6 +354,15 @@
             _line.x = 15.f;
             _line.y = BOTEDITORITEMHIGHTSPEC - 1.f;
             _line.x = 30.f;
+            break;
+        case SEBotEditorViewCellDeleteBot:
+            _leftLabel.text = @"删除";
+            _leftLabel.textColor = [UIColor redColor];
+            [_leftLabel sizeToFit];
+            _leftLabel.centerY = BOTEDITORITEMHIGHT/2;
+            _leftLabel.centerX = SCREEN_WIDTH/2;
+            
+            
             break;
             
         default:

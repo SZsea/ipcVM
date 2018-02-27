@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, SECustomViewStyle) {
     SECustomViewResume,
     SECustomView2fa,
     SECustomView2faok,
+    SECustomViewScond,
     
 };
 
@@ -30,6 +31,8 @@ typedef NS_ENUM(NSInteger, SECustomViewStyle) {
 -(instancetype)initWithstyle:(SECustomViewStyle)style;
 
 -(instancetype)initWithstyle:(SECustomViewStyle)style withExtraString:(NSString *)str;
+
+-(instancetype)initWithExtraString:(NSString *)str cancelButton:(void(^)())cancelBlock sureButton:(void(^)())sureBlock;
 
 -(void)p_setextraStr:(NSString *)str;
 

@@ -12,7 +12,7 @@
 #import "BotDetailItem.h"
 #import "CardFarmerItem.h"
 #import "GameFarmItem.h"
-
+#import "SECustomView.h"
 @interface SEBotEditorController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,copy)NSString        *botName;
 
@@ -21,10 +21,33 @@
 @property(nonatomic,strong)BotDetailItem  *botDetail;
 
 @property(nonatomic,strong)NSMutableArray  *botArray;
+
+@property(nonatomic,strong)SECustomView    *customView;
 @end
 
 @implementation SEBotEditorController
+- (SECustomView  *)customView
+{
+    if(!_customView)
+    {
+        WEAK_SELF;
+        _customView = [[SECustomView alloc] initWithExtraString:[NSString stringWithFormat:@"你确认要删除%@吗？",_botDetail.botName] cancelButton:^{
+            
+        } sureButton:^{
+            [(SEBotEditorDataProvider *)weakSelf.dataProvider deleteBotWithName:weakSelf.botDetail.botName WithSuccess:^{
+                
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            } failure:^{
+                
+            }];
+        }];
 
+        
+        
+        
+    }
+    return _customView;
+}
 
 -(instancetype)initWithBotName:(NSString *)name{
     if(self = [super init])
@@ -130,7 +153,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
  
-    return 6;
+    return 7;
     
 }
 
@@ -215,6 +238,10 @@
             }
         }
             
+            
+            break;
+        case 6:
+            cell.style = SEBotEditorViewCellDeleteBot;
             break;
         default:
             break;
@@ -237,7 +264,11 @@
         _botDetail.cardFarmerBOOL = !_botDetail.cardFarmerBOOL;
         [_tableView reloadData];
     }
-    
+    if(indexPath.section == 6)
+    {
+        [self.navigationController.view addSubview:self.customView];
+        [_customView showAnimation];
+    }
 }
 
 @end

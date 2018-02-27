@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, SEBotEditorViewCellStyle) {
     SEBotEditorViewCellCardFarmerGameToFarmItem,
     SEBotEditorViewCellCardFarmercurrentGamesFarming,
     SEBotEditorViewCellCardFarmercurrentGamesFarmingItem,
+    SEBotEditorViewCellDeleteBot,
  
 };
 @interface SEBotEditorViewCell : UITableViewCell

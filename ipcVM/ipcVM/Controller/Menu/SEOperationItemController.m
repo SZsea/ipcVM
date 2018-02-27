@@ -72,14 +72,19 @@
     
     
 }
+-(void)viewDidAppear:(BOOL)animated
+{
 
+    [(SEOperationItemDataProvider *)self.dataProvider loadData];
+
+}
 
 - (void)handleReceiveListData:(id)item
 {
     _listItem = [[BotListItem alloc] init];
     [_listItem analyzeNetWorkData:item];
-    //    [self.tableView reloadData];
-    
+//        [self.tableView reloadData];
+//
     if (_tableView.mj_footer) {
         [_tableView.mj_footer setHidden:false];
     }
@@ -87,6 +92,7 @@
     
     if (_tableView) {
         [_tableView reloadData];
+        MALog(@"已刷新");
         [_tableView.mj_header endRefreshing];
         [_tableView.mj_footer endRefreshing];
     }
@@ -139,6 +145,7 @@
 //        SEBotAddController *vc = [[SEBotAddController alloc] init];
 //        [self.navigationController pushViewController:vc animated:YES];
         NSMutableDictionary  *dic = [NSMutableDictionary new];
+        BotConfigItem *botConfig = [[BotConfigItem alloc] init];
         int i;
         int propertyCount = 0;
         objc_property_t *properties = class_copyPropertyList([BotConfigItem class], &propertyCount);
@@ -149,17 +156,25 @@
             const char* char_f =property_getName(property);
             
             NSString *propertyName = [NSString stringWithUTF8String:char_f];
-            if([propertyName isEqualToString:@"AcceptGifts"])
+            id propertyValue = [botConfig valueForKey:(NSString *)propertyName];
+            if(propertyValue)
             {
-                
+              [dic setObject:propertyValue forKey:propertyName];
             }
-            [dic setObject:@"false" forKey:propertyName];
+            
             
         }
         NSMutableDictionary  *dicD = [NSMutableDictionary new];
         [dicD setObject:dic forKey:@"BotConfig"];
         [dicD setObject:@"true" forKey:@"KeepSensitiveDetails"];
-        [(SEOperationItemDataProvider *)self.dataProvider addBotWithBotbody:dicD WithName:@"archi" WithSuccess:nil failure:nil];
+        WS(blockSelf);
+        [(SEOperationItemDataProvider *)self.dataProvider addBotWithBotbody:dicD WithName:@"017" WithSuccess:^{
+            
+            [(SEOperationItemDataProvider *)blockSelf.dataProvider loadData];
+            
+        } failure:nil];
+        
+//        [_tableView reloadData];
     }
 
     

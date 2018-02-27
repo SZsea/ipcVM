@@ -8,8 +8,9 @@
 
 #import "SEMenuDataProvider.h"
 
-@interface SEOperationItemDataProvider : SEMenuDataProvider
+@interface SEOperationItemDataProvider : DataProviderBase
 
 -(void)addBotWithBotbody:(NSDictionary *)botjson WithName:(NSString *)botName WithSuccess:(void (^)())success failure:(void (^)())failure;
+
 
 @end

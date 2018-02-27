@@ -28,6 +28,10 @@
 
 @property (nonatomic, copy)   void(^customblock)(NSString *);
 
+@property (nonatomic, copy)   void(^cancelBlock)();
+
+@property (nonatomic, copy)   void(^ensureBlock)();
+
 @property(nonatomic,strong) NSString  *extraStr;
 
 @end
@@ -130,7 +134,16 @@
                 _sighTitle.y = _customTitle.y + _customTitle.height + 8.f;
             }
                 break;
-            
+            case SECustomViewScond:
+            {
+
+                _sighTitle.text = self.extraStr;
+                _sighTitle.font = MANUIFontWithSize(20.f);
+                [_sighTitle sizeToFit];
+                _sighTitle.y = _customTitle.y + _customTitle.height + 8.f;
+                
+            }
+                break;
             default:
                 break;
         }
@@ -169,6 +182,11 @@
                 break;
             case SECustomViewPauseSconds:
                 self.customTitle.text = @"PauseSconds";
+                [self.customTitle sizeToFit];
+                self.customTitle.centerX = _customView.width/2;
+                break;
+            case SECustomViewScond:
+                self.customTitle.text = @"删除确认";
                 [self.customTitle sizeToFit];
                 self.customTitle.centerX = _customView.width/2;
                 break;
@@ -232,15 +250,25 @@
                _customView.layer.cornerRadius = 10.f;
                _customView.layer.masksToBounds = YES;
                [_customView addSubview:self.customTitle];
-               
-               
                [_customView addSubview:self.sighTitle];
                [_customView addSubview:self.cdkeyText];
                
            }
         
                break;
-               
+           case SECustomViewScond:
+           {
+               _customView.height = SCREEN_HEIGHT /2;
+               _customView.centerX = SCREEN_WIDTH/2;
+               //       _customView.centerY = SCREEN_HEIGHT/2;
+               _customView.y = SCREEN_HEIGHT;
+               _customView.backgroundColor = MAColorWithStr(@"#DEDEDE");
+               _customView.layer.cornerRadius = 10.f;
+               _customView.layer.masksToBounds = YES;
+               [_customView addSubview:self.customTitle];
+               [_customView addSubview:self.sighTitle];
+           }
+               break;
            default:
                break;
        }
@@ -350,6 +378,21 @@
     return self;
 }
 
+-(instancetype)initWithExtraString:(NSString *)str cancelButton:(void(^)())cancelBlock sureButton:(void(^)())sureBlock
+{
+    
+    if(self = [super initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)])
+    {
+        self.extraStr = str;
+        _cancelBlock = cancelBlock;
+        _ensureBlock = sureBlock;
+        self = [self initWithstyle:SECustomViewScond];
+
+        
+    }
+    return self;
+  
+}
 -(void)p_setextraStr:(NSString *)str
 {
     self.extraStr = str;
@@ -425,6 +468,10 @@
     if(_customblock)
     {
         _customblock(self.finalStr);
+    }
+    if(_ensureBlock)
+    {
+        _ensureBlock();
     }
     [self cancelView];
 }

@@ -219,7 +219,7 @@
  
  In order to find your token, as logged in user with Master permission, navigate here and take a look at your trade URL. The token we're looking for is made out of 8 characters after &token= part in your trade URL. You should copy and put those 8 characters here, as SteamTradeToken. Do not include whole trading URL, neither &token= part, only token itself.
  */
-@property(nonatomic,strong)NSDictionary *SteamUserPermissions;
+@property(nonatomic,strong)NSMutableDictionary *SteamUserPermissions;
 
 /*
  SteamUserPermissions - Dictionary<ulong, byte> type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to byte number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined as:
@@ -261,4 +261,5 @@
 
  */
 
+-(instancetype)init;
 @end
